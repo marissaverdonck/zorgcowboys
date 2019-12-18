@@ -1,0 +1,23 @@
+{
+  "name": "zorgcowboys",
+  "version": "1.0.0",
+  "description": "![image_preview](https://user-images.githubusercontent.com/43657951/70627333-59d9c380-1c26-11ea-80b5-1e9e61f9f791.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marissaverdonck/zorgcowboys.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marissaverdonck/zorgcowboys/issues"
+  },
+  "homepage": "https://github.com/marissaverdonck/zorgcowboys#readme",
+  "dependencies": {
+    "d3": "^5.14.2"
+  }
+}
