@@ -23,25 +23,33 @@ function getData(data) {
     );
   }
 
-  var foundName = getCompanyByName('Zuidoostzorg');
-  document.getElementById('output1').innerHTML = foundName[0].bedrijfsnaam
-  console.log(foundName);
+  // var foundName = getCompanyByName('Zuidoostzorg');
+  // document.getElementById('output1').innerHTML = foundName[0].bedrijfsnaam
+  // console.log(foundName);
 
   var foundPlace = getCompanyByPlace('HEEMSKERK');
   var ul = d3.select('body').append('ul');
   ul.selectAll('li')
     .data(foundPlace)
     .enter()
-    .append('li')
-    .text(function(foundPlace) {
-        return foundPlace.bedrijfsnaam + ", " + foundPlace.plaats + ", " +
-          foundPlace.concerncode;
-      }
+    .append("li")
+    .append("a")
+    .attr("xlink:href", function(foundPlace) {
+      return foundPlace.concerncode
+    })
 
 
-    )
 
-  ;
+
+  .text(function(foundPlace) {
+      return foundPlace.bedrijfsnaam + ", " + foundPlace.plaats + ", " +
+        foundPlace.concerncode;
+
+    }
+
+
+  )
+
 
 
 
