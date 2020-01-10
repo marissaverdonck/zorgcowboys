@@ -3,7 +3,8 @@ var list = d3.select('body').append('ul');
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
   const inputText = document.getElementById("inputText").value;
-  console.log(inputText)
+
+
 
   // Fetch geeft toegang tot het json file
   // .then wacht tot de data binnen is, anders crash
@@ -16,14 +17,37 @@ function getInputSearchField() {
     })
 
   function getData(data) {
-    function getCompanyByPlace(plaats) {
-      return data.filter(
-        function(data) {
-          return data.plaats == plaats
-        }
-      );
-    }
+
+
+
+
+
+
+
     var foundPlace = getCompanyByPlace(inputText);
+
+    // filter the data by inputText
+    function getCompanyByPlace(inputText) {
+
+
+      return data.filter(
+
+        function x(data) {
+          var x = inputText == data.plaats || inputText == data.bedrijfsnaam
+
+          return x
+
+        }
+
+
+
+
+      );
+
+
+    }
+
+
     var text = list.selectAll('li').data(foundPlace)
 
     text
