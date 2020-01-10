@@ -4,10 +4,8 @@ var list = d3.select('body').append('ul');
 function getInputSearchField() {
   const inputText = document.getElementById("inputText").value;
 
-
-
-  // Fetch geeft toegang tot het json file
-  // .then wacht tot de data binnen is, anders crash
+  // Fetch gives access to the json file
+  // .then wait till data is loaded, otherwise crash
   fetch('data.json')
     .then((response) => {
       return response.json();
@@ -17,39 +15,20 @@ function getInputSearchField() {
     })
 
   function getData(data) {
-
-
-
-
-
-
-
     var foundPlace = getCompanyByPlace(inputText);
 
-    // filter the data by inputText
+    // filter the data by input search field
     function getCompanyByPlace(inputText) {
-
-
       return data.filter(
-
         function x(data) {
           var x = inputText == data.plaats || inputText == data.bedrijfsnaam
-
           return x
-
         }
-
-
-
-
       );
-
-
     }
 
-
+    // update li elements
     var text = list.selectAll('li').data(foundPlace)
-
     text
       .attr("xlink:href", function(foundPlace) {
         return "http://zorgcowboys/" + foundPlace.concerncode + ".com"
@@ -61,9 +40,11 @@ function getInputSearchField() {
       .on('click', function(foundPlace) {
         window.open("http://zorgcowboys/" + foundPlace.concerncode + ".com")
       });
+    // exit li elements
     text
       .exit()
       .remove();
+    // enter li elements
     text
       .enter()
       .append('li')
@@ -78,37 +59,5 @@ function getInputSearchField() {
       .on('click', function(foundPlace) {
         window.open("http://zorgcowboys/" + foundPlace.concerncode + ".com")
       });
-
   }
-
 }
-
-// Find by Name
-// function getCompanyByName(bedrijfsnaam) {
-//   return data.filter(
-//     function(data) {
-//       return data.bedrijfsnaam == bedrijfsnaam
-//     }
-//   );
-// }
-// var foundName = getCompanyByName('Zuidoostzorg');
-// document.getElementById('output1').innerHTML = foundName[0].bedrijfsnaam
-// console.log(foundName);
-
-
-
-
-
-
-
-
-
-
-
-
-// Without D3
-// var foundPlace = getCompanyByPlace('HEEMSKERK');
-// for (let i = 0; i < foundPlace.length; i++) {
-//   var para = document.createElement("P");
-//   para.innerText = foundPlace[i].bedrijfsnaam;
-//   document.body.appendChild(para);
