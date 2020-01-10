@@ -1,0 +1,97 @@
+@font-face {
+  font-family: tensobold;
+  src: url('tensobold.ttf')
+}
+
+@font-face {
+  font-family: Zilla Slab;
+  src: url('ZillaSlab.ttf')
+}
+
+h1 {
+  font-family: tensobold, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.5em;
+  color: #1d2939;
+}
+
+p {
+  font-family: "Zilla Slab", Georgia, serif;
+  color: #1d2939;
+  font-size: 1.1em;
+}
+
+body {
+  background-color: #F2F2F2;
+}
+
+header {
+  background-color: #1E2938;
+  height: 3.8em;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+header ul {
+  display: flex;
+  Justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+header li:nth-child(1) img {
+  padding: .9em 1.5em;
+  height: 2em;
+}
+
+header li:nth-child(1) {
+  background-color: #d8cedb;
+  height: 3.8em;
+}
+
+header li:nth-child(2) img {
+  height: 3.8em;
+}
+
+header li:nth-child(2) {}
+
+header li:nth-child(3) img {
+  height: 2em;
+  padding: .9em 1.5em;
+}
+
+header li:nth-child(3) {
+  margin: 0 0 0 auto;
+}
+
+#search {
+  margin: 6em 1em 0 1em;
+}
+
+#search div {
+  position: relative;
+}
+
+#search input[type=search] {
+  padding: .7em .7em .7em 1em;
+  width: 100%;
+  font-family: 'Montserrat';
+  font-size: 90%;
+  border: 3px solid #6933dd;
+  border-radius: 5px;
+  height: 5em;
+}
+
+#search input[type=image] {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  right: 1em;
+  top: .7em;
+  padding: 1em;
+  background-color: #ffffff;
+}

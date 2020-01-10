@@ -1,11 +1,11 @@
-var list = d3.select('body').append('ul');
-
-// After clicking the search button, get the value from the field
+var list = d3.select('#results').append('ul');
+console.log("test")
+  // After clicking the search button, get the value from the field
 function getInputSearchField() {
   const inputText = document.getElementById("inputText").value;
-
-  // Fetch gives access to the json file
-  // .then wait till data is loaded, otherwise crash
+  console.log(inputText)
+    // Fetch gives access to the json file
+    // .then wait till data is loaded, otherwise crash
   fetch('data.json')
     .then((response) => {
       return response.json();

@@ -6,21 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Zorgcowboys</title>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+
 </head>
 
 <body>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="script/script.js"></script>
 
 
 
-  <label for="site-search">Search the site:</label>
-  <input type="search" id="inputText" name="q">
-  <button id="go" onclick="getInputSearchField()">Search</button>
+  <header>
+    <ul>
+      <li>
+        <a><img src="/images/pointer_logo.png"></a>
+      </li>
+      <li><img src="/images/rectangle_yellow.png"></li>
+      <li>
+        <a><img src="/images/button_info.png"></a>
+      </li>
+    </ul>
+  </header>
 
-  <h1 id="output1"></h1>
-  <p id="output2"></p>
+  <section id="search">
+    <h1>Zoek instelling of plaatsnaam</h1>
+    <p>Ontdek hoe jouw zorginstelling met winst omgaat</p>
+    <div>
+      <input type="search" id="inputText" name="q">
+      <input type="image" id="image" alt="search" src="/images/button_search.png" onclick="getInputSearchField()">
+    </div>
+  </section>
+
+  <section id="results">
+  </section>
+
 
 </body>
+<script src="script/script.js"></script>
 
 </html>
