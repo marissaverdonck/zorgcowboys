@@ -1,6 +1,8 @@
 var list = d3.select('#results').append('ul');
-console.log("test")
-  // After clicking the search button, get the value from the field
+// const searchButton = document.getElementById("searchButton");
+
+
+// After clicking the search button, get the value from the field
 function getInputSearchField() {
   const inputText = document.getElementById("inputText").value;
   console.log(inputText)
@@ -61,3 +63,5 @@ function getInputSearchField() {
       });
   }
 }
+
+// searchButton.addEventListener("click", getInputSearchField);
