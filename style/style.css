@@ -1,112 +1,173 @@
-  @font-face {
-    font-family: tensobold;
-    src: url('tensobold.ttf')
-  }
-  
-  @font-face {
-    font-family: Zilla Slab;
-    src: url('ZillaSlab.ttf')
-  }
-  
-  h1 {
-    font-family: tensobold, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    margin: 0;
-    font-size: 24px;
-    color: #1d2939;
-  }
-  
-  p {
-    font-family: "Zilla Slab", Georgia, serif;
-    color: #1d2939;
-    font-size: 1.1em;
-  }
-  
-  body {
-    background-color: #F2F2F2;
-  }
-  
-  header {
-    background-color: #1E2938;
-    height: 64px;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-  }
-  
-  header ul {
-    display: flex;
-    Justify-content: flex-start;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header ul li {
-    list-style: none
-  }
-  
-  header li:nth-child(1) img {
-    padding: 20px 19px;
-    height: 24px;
-  }
-  
-  header li:nth-child(1) {
-    background-color: #d8cedb;
-    height: 64px;
-  }
-  
-  header li:nth-child(2) img {
-    height: 64px;
-  }
-  
-  header li:nth-child(2) {}
-  
-  header li:nth-child(3) img {
-    height: 32px;
-    width: 32px;
-    padding: .9em 1.5em;
-  }
-  
-  header li:nth-child(3) {
-    margin: 0 0 0 auto;
-  }
-  
-  #search {
-    margin: 6em 1em 0 1em;
-  }
-  
-  #search div {
-    display: flex;
-    border: 2px solid #6933dd;
-    border-radius: 5px;
-    background-color: #ffffff;
-  }
-  
-  #search input[type=search] {
-    margin: 0;
-    padding: .7em .7em .7em 1em;
-    width: 100%;
-    font-family: 'Montserrat';
-    font-size: 90%;
-    height: 64px;
-  }
-  
-  #search input[type=image] {
-    margin: auto 1.5em;
-    width: 32px;
-    height: 32px;
-    right: 1em;
-    top: .7em;
-    background-color: #ffffff;
-  }
-  
-   :focus,
-   :active,
-  input {
-    outline: none;
-    border-width: 0px;
-    background-color: #ffffff !important;
-  }
-  
-  #results {}
+@font-face {
+  font-family: tensobold;
+  src: url('tensobold.ttf')
+}
+
+@font-face {
+  font-family: Zilla Slab;
+  src: url('ZillaSlab.ttf')
+}
+
+h1 {
+  font-family: tensobold, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  font-size: 24px;
+  color: #1d2939;
+}
+
+h2 {
+  font-family: tensobold, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1d2939;
+}
+
+h3 {
+  font-family: "Zilla Slab", Georgia, serif;
+  color: #6e6e6e;
+  font-size: 14px;
+}
+
+p {
+  font-family: "Zilla Slab", Georgia, serif;
+  color: #1d2939;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+body {
+  background-color: #F2F2F2;
+}
+
+header {
+  background-color: #1E2938;
+  height: 64px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+header ul {
+  display: flex;
+  Justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+header ul li {
+  list-style: none
+}
+
+header li:nth-child(1) img {
+  padding: 20px 19px;
+  height: 24px;
+}
+
+header li:nth-child(1) {
+  background-color: #d8cedb;
+  height: 64px;
+}
+
+header li:nth-child(2) img {
+  height: 64px;
+}
+
+header li:nth-child(2) {}
+
+header li:nth-child(3) img {
+  height: 32px;
+  width: 32px;
+  padding: .9em 1.5em;
+}
+
+header li:nth-child(3) {
+  margin: 0 0 0 auto;
+}
+
+#search {
+  margin: 6em .8em 0 .8em;
+}
+
+#search div {
+  display: flex;
+  border: 2px solid #6933dd;
+  border-radius: 5px;
+  background-color: #ffffff;
+  height: 64px;
+}
+
+#search input[type=search] {
+  margin: 0;
+  padding: .7em .7em .7em 1em;
+  width: 100%;
+  font-family: 'Montserrat';
+  font-size: 90%;
+  height: 64px;
+}
+
+#search input[type=image] {
+  margin: auto 1.5em;
+  width: 27px;
+  height: auto;
+  right: 1em;
+  top: .7em;
+  background-color: #ffffff;
+}
+
+ :focus,
+ :active,
+input {
+  outline: none;
+  border-width: 0px;
+  background-color: #ffffff !important;
+}
+
+#results {
+  background-color: #F2F2F2;
+  margin: 0 .8em;
+}
+
+#results article div {
+  border: solid .5px #f2f2f2;
+}
+
+#results article {
+  background-color: #ffffff;
+  padding: .5em 1em;
+  margin: 1em 0;
+}
+
+#results article p {
+  margin-left: 1em;
+}
+
+.winst {
+  display: inline-block;
+}
+
+img.winst {
+  width: 25px
+}
+
+.loon {
+  display: inline-block;
+}
+
+img.loon {
+  width: 25px;
+}
+
+img#alert {
+  float: right;
+  margin: 1em 0;
+}
+
+.fte {
+  display: inline-block;
+}
+
+img.fte {
+  width: 25px
+}
