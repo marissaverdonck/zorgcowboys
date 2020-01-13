@@ -1,4 +1,5 @@
-var section = d3.select('#results');
+var section = d3.select('#results')
+
 
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
@@ -29,6 +30,10 @@ function getInputSearchField() {
 
     // d3 elements
     // selectAll (li), because li dont excist, it can  be updatet. 
+    var section_h1_1 = section.select('#resultsText1')
+    var section_h1_2 = section.select('#resultsText2')
+    var section_h1_3 = section.select('#resultsText3')
+    var numberOfResults = foundPlace.length
     var article = section.selectAll('li').data(foundPlace).enter().append('article');
     var allArticles = section.selectAll('article').data(foundPlace)
     var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(foundPlace)
@@ -38,8 +43,18 @@ function getInputSearchField() {
     var article_p = d3.selectAll('article > p').data(foundPlace)
     var article_imgAlert = d3.selectAll('#alert').data(foundPlace)
 
+    console.log(numberOfResults)
 
     // Update elements
+
+    section_h1_1
+      .text("Resultaten voor ")
+    section_h1_2
+      .text(" ' " + inputText + "' ")
+    section_h1_3
+      .text(" (" + numberOfResults + ")")
+
+
     article_imgKindOfCare
       .attr("src", function(foundPlace) {
         if (foundPlace.thuiszorg == 'yes' || foundPlace.thuiszorg == 'ja') {
@@ -85,12 +100,15 @@ function getInputSearchField() {
         }
       })
 
+
     // Exit  elements
     allArticles
       .exit()
       .remove();
 
     // Enter elements
+
+
     article
       .append('img')
       .attr('class', 'kindOfCare')
