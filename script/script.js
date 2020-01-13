@@ -2,7 +2,18 @@ var section = d3.select('#results')
 
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
-  const inputText = document.getElementById("inputText").value;
+
+  const oldInputText = document.getElementById("inputText").value;
+
+  // Remove whitespace at end of text
+  var a = oldInputText.length - 1;
+  var lastCharacter = oldInputText.charAt(a)
+  if (lastCharacter == " ") {
+    var inputText = oldInputText.slice(0, a)
+  } else {
+    var inputText = oldInputText
+  }
+
   // Fetch gives access to the json file
   // .then wait till data is loaded, otherwise crash
   fetch('data.json')
