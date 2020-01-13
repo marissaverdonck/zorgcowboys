@@ -128,9 +128,9 @@ function getInputSearchField() {
       });
     article_imgAlertLoon
       .attr("src", function(dataFiltered) {
-        if (dataFiltered.perc_loon > 40) {
+        if (dataFiltered.perc_loon < 40) {
           return "images/icons/alert_solid.png";
-        } else if (dataFiltered.perc_loon < 40) {
+        } else if (dataFiltered.perc_loon > 40) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
@@ -233,9 +233,9 @@ function getInputSearchField() {
       .attr('id', 'alertloon')
       .attr('class', 'alert')
       .attr("src", function(dataFiltered) {
-        if (dataFiltered.perc_loon > 40) {
+        if (dataFiltered.perc_loon < 40) {
           return "images/icons/alert_solid.png";
-        } else if (dataFiltered.perc_loon < 40) {
+        } else if (dataFiltered.perc_loon > 40) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
