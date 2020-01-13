@@ -89,6 +89,7 @@ header li:nth-child(3) {
 
 #search {
   margin: 6em .8em 0 .8em;
+  max-width: 22em;
 }
 
 #search div {
@@ -129,6 +130,7 @@ input {
 #results {
   background-color: #F2F2F2;
   margin: 0 .8em;
+  max-width: 22em;
 }
 
 .kindOfCare {
@@ -155,7 +157,7 @@ input {
 
 #results h2 {
   display: inline-block;
-  margin: 0 0 auto .7em;
+  margin: 0 0 auto .6em;
   word-break: break-word;
   max-width: 13em;
 }
@@ -170,7 +172,7 @@ input {
 
 #results article {
   background-color: #ffffff;
-  padding: 1em 1em;
+  padding: .6em;
   margin: 1em 0;
 }
 
@@ -183,7 +185,9 @@ input {
 }
 
 img.winst {
-  width: 25px
+  width: 25px;
+  float: left;
+  margin: 1em 0;
 }
 
 .loon {
@@ -192,6 +196,8 @@ img.winst {
 
 img.loon {
   width: 25px;
+  float: left;
+  margin: 1em 0;
 }
 
 img#alert {
@@ -204,5 +210,16 @@ img#alert {
 }
 
 img.fte {
-  width: 25px
+  width: 25px;
+  float: left;
+  margin: 1em 0;
+}
+
+@media all and (min-width: 22em) {
+  #search {
+    margin: 6em auto 0 auto;
+  }
+  #results {
+    margin: 0em auto 0 auto;
+  }
 }

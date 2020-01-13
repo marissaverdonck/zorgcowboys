@@ -34,7 +34,7 @@ function getInputSearchField() {
     var section_h1_2 = section.select('#resultsText2')
     var section_h1_3 = section.select('#resultsText3')
     var numberOfResults = foundPlace.length
-    var article = section.selectAll('li').data(foundPlace).enter().append('article');
+    var article = section.selectAll('li').data(foundPlace).enter().append('article').append('a');
     var allArticles = section.selectAll('article').data(foundPlace)
     var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(foundPlace)
     var article_a = section.selectAll('a').data(foundPlace)
@@ -126,7 +126,7 @@ function getInputSearchField() {
         }
       })
     article
-      .append('a')
+
       .attr("xlink:href", function(foundPlace) {
         return "http://zorgcowboys/" + foundPlace.plaats + foundPlace.concerncode + ".com"
       })
