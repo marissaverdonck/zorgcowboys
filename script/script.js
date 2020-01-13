@@ -28,7 +28,6 @@ function getInputSearchField() {
     var foundData = searchData(inputText);
     // filter the data by input search field
     function searchData(inputText) {
-
       // Get de style differences out of the data
       return data.filter(
         function(data) {
@@ -53,6 +52,7 @@ function getInputSearchField() {
         checkdoubleconcerncode.push(foundData[i].concerncode)
         dataFiltered.push(foundData[i])
       }
+      console.log(dataFiltered)
     }
 
     // d3 elements
@@ -65,7 +65,7 @@ function getInputSearchField() {
     var allArticles = section.selectAll('article').data(dataFiltered)
     var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(dataFiltered)
     var article_a = section.selectAll('a').data(dataFiltered)
-    var article_h2 = article_a.selectAll('a > h2').data(dataFiltered)
+    var article_h2 = d3.selectAll('a > h2').data(dataFiltered)
     var article_h3 = d3.selectAll('a > h3').data(dataFiltered)
     var article_p = d3.selectAll('a > p').data(dataFiltered)
     var article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
