@@ -28,15 +28,31 @@ function getInputSearchField() {
     }
 
     // d3 elements
-    var article = section.selectAll('p').data(foundPlace).enter().append('article');
+    // selectAll (li), because li dont excist, it can  be updatet. 
+    var article = section.selectAll('li').data(foundPlace).enter().append('article');
     var allArticles = section.selectAll('article').data(foundPlace)
+    var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(foundPlace)
     var article_a = section.selectAll('a').data(foundPlace)
     var article_h2 = article_a.selectAll('a > h2').data(foundPlace)
     var article_h3 = d3.selectAll('article > h3').data(foundPlace)
     var article_p = d3.selectAll('article > p').data(foundPlace)
     var article_imgAlert = d3.selectAll('#alert').data(foundPlace)
 
+
     // Update elements
+    article_imgKindOfCare
+      .attr("src", function(foundPlace) {
+        if (foundPlace.thuiszorg == 'yes' || foundPlace.thuiszorg == 'ja') {
+          console.log('thuiszorg' + foundPlace.thuiszorg)
+          return "images/icons/home_white.png";
+        } else if (foundPlace.gehandicaptenzorg == 'yes' || foundPlace.gehandicaptenzorg == 'ja') {
+          console.log('gehandicaptenzorg' + foundPlace.gehandicaptenzorg)
+          return "images/icons/handicap_white.png";
+        } else if (foundPlace.geestelijkegezondheidszorg == 'yes' || foundPlace.geestelijkegezondheidszorg == 'ja') {
+          console.log('geestelijkegezondheidszorg' + foundPlace.geestelijkegezondheidszorg)
+          return "images/icons/mental_white.png";
+        }
+      })
     article_a
       .attr("xlink:href", function(foundPlace) {
         return "http://zorgcowboys/" + foundPlace.plaats + foundPlace.concerncode + ".com"
@@ -75,6 +91,22 @@ function getInputSearchField() {
       .remove();
 
     // Enter elements
+    article
+      .append('img')
+      .attr('class', 'kindOfCare')
+      .attr("src", function(foundPlace) {
+        if (foundPlace.thuiszorg == 'yes' || foundPlace.thuiszorg == 'ja') {
+          console.log('thuiszorg' + foundPlace.thuiszorg)
+
+          return "images/icons/home_white.png";
+        } else if (foundPlace.gehandicaptenzorg == 'yes' || foundPlace.gehandicaptenzorg == 'ja') {
+          console.log('gehandicaptenzorg' + foundPlace.gehandicaptenzorg)
+          return "images/icons/handicap_white.png";
+        } else if (foundPlace.geestelijkegezondheidszorg == 'yes' || foundPlace.geestelijkegezondheidszorg == 'ja') {
+          console.log('geestelijkegezondheidszorg' + foundPlace.geestelijkegezondheidszorg)
+          return "images/icons/mental_white.png";
+        }
+      })
     article
       .append('a')
       .attr("xlink:href", function(foundPlace) {
@@ -120,13 +152,10 @@ function getInputSearchField() {
       })
     article
       .append('div')
-
-
     article
       .append('img')
       .attr('class', 'loon')
       .attr("src", "images/icons/wallet_purple.png")
-
     article
       .append('p')
       .attr('class', 'loon')
@@ -148,12 +177,10 @@ function getInputSearchField() {
       })
     article
       .append('div')
-
     article
       .append('img')
       .attr('class', 'fte')
       .attr("src", "images/icons/user_purple.png")
-
     article
       .append('p')
       .attr('class', 'fte')
@@ -173,8 +200,6 @@ function getInputSearchField() {
           return "images/icons/Percentage.png";
         }
       })
-
-
   }
 }
 

@@ -105,6 +105,7 @@ header li:nth-child(3) {
   font-family: 'Montserrat';
   font-size: 90%;
   height: 64px;
+  -webkit-appearance: none
 }
 
 #search input[type=image] {
@@ -127,6 +128,12 @@ input {
 #results {
   background-color: #F2F2F2;
   margin: 0 .8em;
+}
+
+.kindOfCare {
+  background-color: #6b42e5;
+  width: 24px;
+  padding: 5px;
 }
 
 #results article div {
