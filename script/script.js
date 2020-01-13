@@ -3,9 +3,8 @@ var section = d3.select('#results')
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
   const inputText = document.getElementById("inputText").value;
-  console.log(inputText)
-    // Fetch gives access to the json file
-    // .then wait till data is loaded, otherwise crash
+  // Fetch gives access to the json file
+  // .then wait till data is loaded, otherwise crash
   fetch('data.json')
     .then((response) => {
       return response.json();
@@ -15,129 +14,134 @@ function getInputSearchField() {
     })
 
   function getData(data) {
-    var foundPlace = searchData(inputText);
+    var foundData = searchData(inputText);
     // filter the data by input search field
     function searchData(inputText) {
       return data.filter(
         function(data) {
-          var searchDataInput = inputText == data.plaats || inputText == data.bedrijfsnaam
-          return searchDataInput
+          var searchInDataFields = inputText == data.plaats || inputText == data.bedrijfsnaam
+          return searchInDataFields
         }
       );
     }
 
 
+    // //Filter on double concerncodes
+    var i = 0;
+    var checkdoubleconcerncode = [];
+    var dataFiltered = [];
 
-    console.log(foundPlace)
-
-
-
-
+    for (i = 0; i < foundData.length; i++) {
+      if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1) {
+        checkdoubleconcerncode.push(foundData[i].concerncode)
+        dataFiltered.push(foundData[i])
+      }
+    }
 
     // d3 elements
     // selectAll (li), because li dont excist, it can  be updatet. 
     var section_h1_1 = section.select('#resultsText1')
     var section_h1_2 = section.select('#resultsText2')
     var section_h1_3 = section.select('#resultsText3')
-    var numberOfResults = foundPlace.length
-    var article = section.selectAll('li').data(foundPlace).enter().append('article').append('a');
-    var allArticles = section.selectAll('article').data(foundPlace)
-    var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(foundPlace)
-    var article_a = section.selectAll('a').data(foundPlace)
-    var article_h2 = article_a.selectAll('a > h2').data(foundPlace)
-    var article_h3 = d3.selectAll('a > h3').data(foundPlace)
-    var article_p = d3.selectAll('a > p').data(foundPlace)
+    var numberOfResults = dataFiltered.length
+    var article = section.selectAll('li').data(dataFiltered).enter().append('article').append('a');
+    var allArticles = section.selectAll('article').data(dataFiltered)
+    var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(dataFiltered)
+    var article_a = section.selectAll('a').data(dataFiltered)
+    var article_h2 = article_a.selectAll('a > h2').data(dataFiltered)
+    var article_h3 = d3.selectAll('a > h3').data(dataFiltered)
+    var article_p = d3.selectAll('a > p').data(dataFiltered)
 
-    var article_pWinst = d3.selectAll('#textwinst').data(foundPlace)
-    var article_pLoon = d3.selectAll('#textloon').data(foundPlace)
-    var article_pFte = d3.selectAll('#textfte').data(foundPlace)
+    var article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
+    var article_pLoon = d3.selectAll('#textloon').data(dataFiltered)
+    var article_pFte = d3.selectAll('#textfte').data(dataFiltered)
 
-    var article_imgAlertWinst = d3.selectAll('#alertwinst').data(foundPlace)
-    var article_imgAlertLoon = d3.selectAll('#alertloon').data(foundPlace)
-    var article_imgAlertFte = d3.selectAll('#alertfte').data(foundPlace)
+    var article_imgAlertWinst = d3.selectAll('#alertwinst').data(dataFiltered)
+    var article_imgAlertLoon = d3.selectAll('#alertloon').data(dataFiltered)
+    var article_imgAlertFte = d3.selectAll('#alertfte').data(dataFiltered)
 
     // Update elements
     section_h1_1
-      .text("Resultaten voor ")
+      .text("Resultaten voor ");
     section_h1_2
-      .text(" ' " + inputText + "' ")
+      .text(" ' " + inputText + "' ");
     section_h1_3
-      .text(" (" + numberOfResults + ")")
+      .text(" (" + numberOfResults + ")");
 
     article_imgKindOfCare
-      .attr("src", function(foundPlace) {
-        if (foundPlace.thuiszorg == 'yes' || foundPlace.thuiszorg == 'ja') {
-          console.log('thuiszorg' + foundPlace.thuiszorg)
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
+          console.log('thuiszorg' + dataFiltered.thuiszorg)
           return "images/icons/home_white.png";
-        } else if (foundPlace.gehandicaptenzorg == 'yes' || foundPlace.gehandicaptenzorg == 'ja') {
-          console.log('gehandicaptenzorg' + foundPlace.gehandicaptenzorg)
+        } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
+          console.log('gehandicaptenzorg' + dataFiltered.gehandicaptenzorg)
           return "images/icons/handicap_white.png";
-        } else if (foundPlace.geestelijkegezondheidszorg == 'yes' || foundPlace.geestelijkegezondheidszorg == 'ja') {
-          console.log('geestelijkegezondheidszorg' + foundPlace.geestelijkegezondheidszorg)
+        } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
+          console.log('geestelijkegezondheidszorg' + dataFiltered.geestelijkegezondheidszorg)
           return "images/icons/mental_white.png";
         }
-      })
+      });
     article_a
-      .attr("xlink:href", function(foundPlace) {
-        return "http://zorgcowboys/" + foundPlace.plaats + foundPlace.concerncode + ".com"
-      })
+      .attr("xlink:href", function(dataFiltered) {
+        return "http://zorgcowboys/" + dataFiltered.plaats + dataFiltered.concerncode + ".com"
+      });
     article_h2
       .attr('id', 'article_h2')
-      .text(function(foundPlace) {
-        return foundPlace.bedrijfsnaam;
+      .text(function(dataFiltered) {
+        return dataFiltered.bedrijfsnaam;
       })
       // Open new tab
-      .on('click', function(foundPlace) {
-        window.open("http://zorgcowboys/" + foundPlace.concerncode + ".com")
-      })
+      .on('click', function(dataFiltered) {
+        window.open("http://zorgcowboys/" + dataFiltered.concerncode + ".com")
+      });
     article_h3
-      .text(function(foundPlace) {
-        return foundPlace.plaats;
-      })
+      .text(function(dataFiltered) {
+        return dataFiltered.plaats;
+      });
     article_p
-      .text(function(foundPlace) {
-        return "Winstpercentage: " + foundPlace.perc_winst + "%";
-      })
+      .text(function(dataFiltered) {
+        return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+      });
 
     article_pWinst
-      .text(function(foundPlace) {
-        return "Winstpercentage: " + foundPlace.perc_winst + "%";
-      })
+      .text(function(dataFiltered) {
+        return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+      });
     article_pLoon
-      .text(function(foundPlace) {
-        return "Percentage loon: " + foundPlace.perc_loon + "%";
-      })
+      .text(function(dataFiltered) {
+        return "Percentage loon: " + dataFiltered.perc_loon + "%";
+      });
     article_pFte
-      .text(function(foundPlace) {
-        return "Omzet per FTE: €" + foundPlace.omzet_fte;
-      })
+      .text(function(dataFiltered) {
+        return "Omzet per FTE: €" + dataFiltered.omzet_fte;
+      });
 
 
     article_imgAlertWinst
-      .attr("src", function(foundPlace) {
-        if (foundPlace.perc_winst > 10) {
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.perc_winst > 10) {
           return "images/icons/alert_solid.png";
-        } else if (foundPlace.perc_winst < 10) {
+        } else if (dataFiltered.perc_winst < 10) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
         }
-      })
+      });
     article_imgAlertLoon
-      .attr("src", function(foundPlace) {
-        if (foundPlace.perc_loon > 40) {
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.perc_loon > 40) {
           return "images/icons/alert_solid.png";
-        } else if (foundPlace.perc_loon < 40) {
+        } else if (dataFiltered.perc_loon < 40) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
         }
-      })
+      });
     article_imgAlertFte
-      .attr("src", function(foundPlace) {
-        if (foundPlace.omzet_fte > 125000) {
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.omzet_fte > 125000) {
           return "images/icons/alert_solid.png";
-        } else if (foundPlace.omzet_fte < 125000) {
+        } else if (dataFiltered.omzet_fte < 125000) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
@@ -153,58 +157,58 @@ function getInputSearchField() {
     article
       .append('img')
       .attr('class', 'kindOfCare')
-      .attr("src", function(foundPlace) {
-        if (foundPlace.thuiszorg == 'yes' || foundPlace.thuiszorg == 'ja') {
-          console.log('thuiszorg' + foundPlace.thuiszorg)
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
+
 
           return "images/icons/home_white.png";
-        } else if (foundPlace.gehandicaptenzorg == 'yes' || foundPlace.gehandicaptenzorg == 'ja') {
-          console.log('gehandicaptenzorg' + foundPlace.gehandicaptenzorg)
+        } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
+
           return "images/icons/handicap_white.png";
-        } else if (foundPlace.geestelijkegezondheidszorg == 'yes' || foundPlace.geestelijkegezondheidszorg == 'ja') {
-          console.log('geestelijkegezondheidszorg' + foundPlace.geestelijkegezondheidszorg)
+        } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
+
           return "images/icons/mental_white.png";
         }
-      })
+      });
     article
-      .attr("xlink:href", function(foundPlace) {
-        return "http://zorgcowboys/" + foundPlace.plaats + foundPlace.concerncode + ".com"
+      .attr("xlink:href", function(dataFiltered) {
+        return "http://zorgcowboys/" + dataFiltered.plaats + dataFiltered.concerncode + ".com"
       })
       .append('h2')
       .attr('id', 'article_h2')
-      .text(function(foundPlace) {
-        return foundPlace.bedrijfsnaam;
+      .text(function(dataFiltered) {
+        return dataFiltered.bedrijfsnaam;
       })
       // Open new tab
-      .on('click', function(foundPlace) {
-        window.open("http://zorgcowboys/" + foundPlace.concerncode + ".com")
-      })
+      .on('click', function(dataFiltered) {
+        window.open("http://zorgcowboys/" + dataFiltered.concerncode + ".com")
+      });
     article
       .append('h3')
-      .text(function(foundPlace) {
-        return foundPlace.plaats;
-      })
-      //Winst
+      .text(function(dataFiltered) {
+        return dataFiltered.plaats;
+      });
+    //Winst
     article
       .append('img')
       .attr('class', 'winst')
-      .attr("src", "images/icons/money_purple.png")
+      .attr("src", "images/icons/money_purple.png");
     article
       .append('p')
       .attr('class', 'winst')
       .attr('id', 'textwinst')
-      .text(function(foundPlace) {
-        return "Winstpercentage: " + foundPlace.perc_winst + "%";
-      })
+      .text(function(dataFiltered) {
+        return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+      });
     article
       .append('img')
       .attr('class', 'winst')
       .attr('id', 'alertwinst')
       .attr('class', 'alert')
-      .attr("src", function(foundPlace) {
-        if (foundPlace.perc_winst > 10) {
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.perc_winst > 10) {
           return "images/icons/alert_solid.png";
-        } else if (foundPlace.perc_winst < 10) {
+        } else if (dataFiltered.perc_winst < 10) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
@@ -212,55 +216,55 @@ function getInputSearchField() {
       })
       //Loon
     article
-      .append('div')
+      .append('div');
     article
       .append('img')
       .attr('class', 'loon')
-      .attr("src", "images/icons/wallet_purple.png")
+      .attr("src", "images/icons/wallet_purple.png");
     article
       .append('p')
       .attr('class', 'loon')
       .attr('id', 'textloon')
-      .text(function(foundPlace) {
-        return "Percentage loon: " + foundPlace.perc_loon + "%";
-      })
+      .text(function(dataFiltered) {
+        return "Percentage loon: " + dataFiltered.perc_loon + "%";
+      });
     article
       .append('img')
       .attr('class', 'loon')
       .attr('id', 'alertloon')
       .attr('class', 'alert')
-      .attr("src", function(foundPlace) {
-        if (foundPlace.perc_loon > 40) {
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.perc_loon > 40) {
           return "images/icons/alert_solid.png";
-        } else if (foundPlace.perc_loon < 40) {
+        } else if (dataFiltered.perc_loon < 40) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
         }
-      })
+      });
     article
       .append('div')
       //FTE
     article
       .append('img')
       .attr('class', 'fte')
-      .attr("src", "images/icons/user_purple.png")
+      .attr("src", "images/icons/user_purple.png");
     article
       .append('p')
       .attr('class', 'fte')
       .attr('id', 'textfte')
-      .text(function(foundPlace) {
-        return "Omzet per FTE: €" + foundPlace.omzet_fte;
-      })
+      .text(function(dataFiltered) {
+        return "Omzet per FTE: €" + dataFiltered.omzet_fte;
+      });
     article
       .append('img')
       .attr('class', 'fte')
       .attr('class', 'alert')
       .attr('id', 'alertfte')
-      .attr("src", function(foundPlace) {
-        if (foundPlace.omzet_fte > 125000) {
+      .attr("src", function(dataFiltered) {
+        if (dataFiltered.omzet_fte > 125000) {
           return "images/icons/alert_solid.png";
-        } else if (foundPlace.omzet_fte < 125000) {
+        } else if (dataFiltered.omzet_fte < 125000) {
           return "images/icons/check_solid.png";
         } else {
           return "images/icons/Percentage.png";
