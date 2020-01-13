@@ -17,9 +17,14 @@ function getInputSearchField() {
     var foundData = searchData(inputText);
     // filter the data by input search field
     function searchData(inputText) {
+
+      // Get de style differences out of the data
       return data.filter(
         function(data) {
-          var searchInDataFields = inputText == data.plaats || inputText == data.bedrijfsnaam
+          var inputLowerCase = inputText.toLowerCase()
+          var placeLowerCase = data.plaats.toLowerCase()
+          var companyLowerCase = data.bedrijfsnaam.toLowerCase()
+          var searchInDataFields = inputLowerCase == placeLowerCase || inputLowerCase == companyLowerCase
           return searchInDataFields
         }
       );
