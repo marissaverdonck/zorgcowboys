@@ -27,6 +27,7 @@ h3 {
   font-family: "Zilla Slab", Georgia, serif;
   color: #6e6e6e;
   font-size: 14px;
+  font-weight: 200;
 }
 
 p {
@@ -132,8 +133,22 @@ input {
 
 .kindOfCare {
   background-color: #6b42e5;
-  width: 24px;
-  padding: 5px;
+  width: 23px;
+  padding: 6px;
+  display: inline;
+  border-radius: 2px;
+  float: left;
+}
+
+#results h2 {
+  display: inline-block;
+  margin: 0 0 auto .7em;
+  word-break: break-word;
+  max-width: 13em;
+}
+
+#results h3 {
+  margin: 0.1em 0 1em 3.5em;
 }
 
 #results article div {
