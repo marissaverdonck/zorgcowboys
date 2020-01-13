@@ -25,14 +25,15 @@ function getInputSearchField() {
       );
     }
 
-
-    // //Filter on double concerncodes
+    //Filter on double concerncodes and latest years (2017/2018)
     var i = 0;
     var checkdoubleconcerncode = [];
     var dataFiltered = [];
-
     for (i = 0; i < foundData.length; i++) {
-      if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1) {
+      if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar == 2018) {
+        checkdoubleconcerncode.push(foundData[i].concerncode)
+        dataFiltered.push(foundData[i])
+      } else if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar == 2017) {
         checkdoubleconcerncode.push(foundData[i].concerncode)
         dataFiltered.push(foundData[i])
       }
@@ -51,11 +52,9 @@ function getInputSearchField() {
     var article_h2 = article_a.selectAll('a > h2').data(dataFiltered)
     var article_h3 = d3.selectAll('a > h3').data(dataFiltered)
     var article_p = d3.selectAll('a > p').data(dataFiltered)
-
     var article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
     var article_pLoon = d3.selectAll('#textloon').data(dataFiltered)
     var article_pFte = d3.selectAll('#textfte').data(dataFiltered)
-
     var article_imgAlertWinst = d3.selectAll('#alertwinst').data(dataFiltered)
     var article_imgAlertLoon = d3.selectAll('#alertloon').data(dataFiltered)
     var article_imgAlertFte = d3.selectAll('#alertfte').data(dataFiltered)
