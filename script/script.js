@@ -1,6 +1,5 @@
 var section = d3.select('#results')
 
-
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
   const inputText = document.getElementById("inputText").value;
@@ -16,17 +15,24 @@ function getInputSearchField() {
     })
 
   function getData(data) {
-    var foundPlace = getCompanyByPlace(inputText);
-
+    var foundPlace = searchData(inputText);
     // filter the data by input search field
-    function getCompanyByPlace(inputText) {
+    function searchData(inputText) {
       return data.filter(
-        function x(data) {
-          var x = inputText == data.plaats || inputText == data.bedrijfsnaam
-          return x
+        function(data) {
+          var searchDataInput = inputText == data.plaats || inputText == data.bedrijfsnaam
+          return searchDataInput
         }
       );
     }
+
+
+
+    console.log(foundPlace)
+
+
+
+
 
     // d3 elements
     // selectAll (li), because li dont excist, it can  be updatet. 
@@ -39,21 +45,24 @@ function getInputSearchField() {
     var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(foundPlace)
     var article_a = section.selectAll('a').data(foundPlace)
     var article_h2 = article_a.selectAll('a > h2').data(foundPlace)
-    var article_h3 = d3.selectAll('article > h3').data(foundPlace)
-    var article_p = d3.selectAll('article > p').data(foundPlace)
-    var article_imgAlert = d3.selectAll('#alert').data(foundPlace)
+    var article_h3 = d3.selectAll('a > h3').data(foundPlace)
+    var article_p = d3.selectAll('a > p').data(foundPlace)
 
-    console.log(numberOfResults)
+    var article_pWinst = d3.selectAll('#textwinst').data(foundPlace)
+    var article_pLoon = d3.selectAll('#textloon').data(foundPlace)
+    var article_pFte = d3.selectAll('#textfte').data(foundPlace)
+
+    var article_imgAlertWinst = d3.selectAll('#alertwinst').data(foundPlace)
+    var article_imgAlertLoon = d3.selectAll('#alertloon').data(foundPlace)
+    var article_imgAlertFte = d3.selectAll('#alertfte').data(foundPlace)
 
     // Update elements
-
     section_h1_1
       .text("Resultaten voor ")
     section_h1_2
       .text(" ' " + inputText + "' ")
     section_h1_3
       .text(" (" + numberOfResults + ")")
-
 
     article_imgKindOfCare
       .attr("src", function(foundPlace) {
@@ -89,7 +98,22 @@ function getInputSearchField() {
       .text(function(foundPlace) {
         return "Winstpercentage: " + foundPlace.perc_winst + "%";
       })
-    article_imgAlert
+
+    article_pWinst
+      .text(function(foundPlace) {
+        return "Winstpercentage: " + foundPlace.perc_winst + "%";
+      })
+    article_pLoon
+      .text(function(foundPlace) {
+        return "Percentage loon: " + foundPlace.perc_loon + "%";
+      })
+    article_pFte
+      .text(function(foundPlace) {
+        return "Omzet per FTE: €" + foundPlace.omzet_fte;
+      })
+
+
+    article_imgAlertWinst
       .attr("src", function(foundPlace) {
         if (foundPlace.perc_winst > 10) {
           return "images/icons/alert_solid.png";
@@ -99,7 +123,26 @@ function getInputSearchField() {
           return "images/icons/Percentage.png";
         }
       })
-
+    article_imgAlertLoon
+      .attr("src", function(foundPlace) {
+        if (foundPlace.perc_loon > 40) {
+          return "images/icons/alert_solid.png";
+        } else if (foundPlace.perc_loon < 40) {
+          return "images/icons/check_solid.png";
+        } else {
+          return "images/icons/Percentage.png";
+        }
+      })
+    article_imgAlertFte
+      .attr("src", function(foundPlace) {
+        if (foundPlace.omzet_fte > 125000) {
+          return "images/icons/alert_solid.png";
+        } else if (foundPlace.omzet_fte < 125000) {
+          return "images/icons/check_solid.png";
+        } else {
+          return "images/icons/Percentage.png";
+        }
+      })
 
     // Exit  elements
     allArticles
@@ -107,8 +150,6 @@ function getInputSearchField() {
       .remove();
 
     // Enter elements
-
-
     article
       .append('img')
       .attr('class', 'kindOfCare')
@@ -126,7 +167,6 @@ function getInputSearchField() {
         }
       })
     article
-
       .attr("xlink:href", function(foundPlace) {
         return "http://zorgcowboys/" + foundPlace.plaats + foundPlace.concerncode + ".com"
       })
@@ -144,21 +184,23 @@ function getInputSearchField() {
       .text(function(foundPlace) {
         return foundPlace.plaats;
       })
+      //Winst
     article
       .append('img')
       .attr('class', 'winst')
       .attr("src", "images/icons/money_purple.png")
-
     article
       .append('p')
       .attr('class', 'winst')
+      .attr('id', 'textwinst')
       .text(function(foundPlace) {
         return "Winstpercentage: " + foundPlace.perc_winst + "%";
       })
     article
       .append('img')
       .attr('class', 'winst')
-      .attr('id', 'alert')
+      .attr('id', 'alertwinst')
+      .attr('class', 'alert')
       .attr("src", function(foundPlace) {
         if (foundPlace.perc_winst > 10) {
           return "images/icons/alert_solid.png";
@@ -168,6 +210,7 @@ function getInputSearchField() {
           return "images/icons/Percentage.png";
         }
       })
+      //Loon
     article
       .append('div')
     article
@@ -177,13 +220,15 @@ function getInputSearchField() {
     article
       .append('p')
       .attr('class', 'loon')
+      .attr('id', 'textloon')
       .text(function(foundPlace) {
         return "Percentage loon: " + foundPlace.perc_loon + "%";
       })
     article
       .append('img')
       .attr('class', 'loon')
-      .attr('id', 'alert')
+      .attr('id', 'alertloon')
+      .attr('class', 'alert')
       .attr("src", function(foundPlace) {
         if (foundPlace.perc_loon > 40) {
           return "images/icons/alert_solid.png";
@@ -195,6 +240,7 @@ function getInputSearchField() {
       })
     article
       .append('div')
+      //FTE
     article
       .append('img')
       .attr('class', 'fte')
@@ -202,13 +248,15 @@ function getInputSearchField() {
     article
       .append('p')
       .attr('class', 'fte')
+      .attr('id', 'textfte')
       .text(function(foundPlace) {
         return "Omzet per FTE: €" + foundPlace.omzet_fte;
       })
     article
       .append('img')
       .attr('class', 'fte')
-      .attr('id', 'alert')
+      .attr('class', 'alert')
+      .attr('id', 'alertfte')
       .attr("src", function(foundPlace) {
         if (foundPlace.omzet_fte > 125000) {
           return "images/icons/alert_solid.png";
