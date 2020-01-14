@@ -251,7 +251,7 @@ function getInputSearchField() {
     article
       .append('img')
       .attr('class', 'loon')
-      .attr("src", "images/icons/missing_violet.png");
+      .attr("src", "images/icons/wallet_purple.png");
     article
       .append('p')
       .attr('class', 'loon')

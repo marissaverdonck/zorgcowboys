@@ -92,7 +92,7 @@ header li:nth-child(3) {
   max-width: 22em;
 }
 
-#search div {
+#search div#searchbar {
   display: flex;
   border: 2px solid #6933dd;
   border-radius: 5px;
@@ -100,7 +100,7 @@ header li:nth-child(3) {
   height: 64px;
 }
 
-#search input[type=search] {
+#searchbar input[type=search] {
   margin: 0;
   padding: .7em .7em .7em 1em;
   width: 100%;
@@ -110,7 +110,7 @@ header li:nth-child(3) {
   -webkit-appearance: none
 }
 
-#search input[type=image] {
+#searchbar input[type=image] {
   margin: auto 1.5em;
   width: 27px;
   height: auto;
@@ -125,6 +125,53 @@ input {
   outline: none;
   border-width: 0px;
   /* background-color: #ffffff !important; */
+}
+
+#filter {
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+#filtertitel {
+  font-weight: 900;
+  color: #1d2939
+}
+
+#filter button {
+  background-color: #6933dd;
+  padding: 13px 31px;
+  border-radius: 2px;
+  width: 102px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#filter button:hover {
+  background-color: #d8cedb
+}
+
+#filter button:active {
+  background-color: #d8cedb
+}
+
+#filter button:focus {
+  background-color: #d8cedb
+}
+
+#filter img {
+  width: 40px;
+  height: 40px;
+}
+
+#filter p {
+  color: #ffffff;
+  font-size: 12px;
+  margin: 2px auto 13px auto;
+  text-align: center;
+  display: block;
 }
 
 #results {

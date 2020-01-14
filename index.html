@@ -19,11 +19,11 @@
   <header>
     <ul>
       <li>
-        <a><img src="images/pointer_logo.png"></a>
+        <a><img src="images/pointer_logo.png" alt="logo"></a>
       </li>
-      <li><img src="images/rectangle_yellow.png"></li>
+      <li><img src="images/rectangle_yellow.png" alt="styling image"></li>
       <li>
-        <a><img src="images/icons/information_white.png"></a>
+        <a><img src="images/icons/information_white.png" alt="more info"></a>
       </li>
     </ul>
   </header>
@@ -31,11 +31,28 @@
   <section id="search">
     <h1>Zoek instelling of plaatsnaam</h1>
     <p>Ontdek hoe jouw zorginstelling met winst omgaat</p>
-    <div>
+    <div id="searchbar">
 
       <input type="search" id="inputText" name="q" placeholder="Typ hier" aria-label="Zoek naar een zorginstelling bij naam of plaatsnaam">
       <input type="image" id="image" alt="search" src="images/icons/search_purple.png" onclick="getInputSearchField()">
 
+
+    </div>
+    <h2 id="filtertitel">Filteren op soort zorg</h2>
+    <div id="filter">
+
+      <button>
+      <img src="images/icons/home_white.png" alt="thuiszorg filter">
+      <p>Thuis</p>
+    </button>
+      <button>
+      <img src="images/icons/handicap_white.png" alt="gehandicaptenzorg filter">
+      <p>Gehandicapt</p>
+    </button>
+      <button>
+      <img src="images/icons/mental_white.png" alt="geestelijk zorg filter">
+      <p>Geestelijk</p>
+    </button>
     </div>
   </section>
 
