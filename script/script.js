@@ -139,7 +139,7 @@ function getInputSearchField() {
         } else if (dataFiltered.perc_winst < 10) {
           return "images/icons/check_solid.png";
         } else {
-          return "images/icons/Percentage.png";
+          return "images/icons/missing_violet.png";
         }
       });
     article_imgAlertLoon
@@ -149,7 +149,7 @@ function getInputSearchField() {
         } else if (dataFiltered.perc_loon > 40) {
           return "images/icons/check_solid.png";
         } else {
-          return "images/icons/Percentage.png";
+          return "images/icons/missing_violet.png";
         }
       });
     article_imgAlertFte
@@ -159,7 +159,7 @@ function getInputSearchField() {
         } else if (dataFiltered.omzet_fte < 125000) {
           return "images/icons/check_solid.png";
         } else {
-          return "images/icons/Percentage.png";
+          return "images/icons/missing_violet.png";
         }
       })
 
@@ -235,7 +235,7 @@ function getInputSearchField() {
     article
       .append('img')
       .attr('class', 'loon')
-      .attr("src", "images/icons/wallet_purple.png");
+      .attr("src", "images/icons/missing_violet.png");
     article
       .append('p')
       .attr('class', 'loon')
@@ -254,7 +254,7 @@ function getInputSearchField() {
         } else if (dataFiltered.perc_loon > 40) {
           return "images/icons/check_solid.png";
         } else {
-          return "images/icons/Percentage.png";
+          return "images/icons/missing_violet.png";
         }
       });
     article
@@ -282,7 +282,7 @@ function getInputSearchField() {
         } else if (dataFiltered.omzet_fte < 125000) {
           return "images/icons/check_solid.png";
         } else {
-          return "images/icons/Percentage.png";
+          return "images/icons/missing_violet.png";
         }
       })
   }
