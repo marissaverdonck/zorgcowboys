@@ -120,15 +120,27 @@ function getInputSearchField() {
 
     article_pWinst
       .text(function(dataFiltered) {
-        return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+        if (dataFiltered.perc_winst == 'NA' || dataFiltered.perc_winst == 'Inf') {
+          return 'Winstpercentage: Ontbreekt'
+        } else {
+          return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+        }
       });
     article_pLoon
       .text(function(dataFiltered) {
-        return "Percentage loon: " + dataFiltered.perc_loon + "%";
+        if (dataFiltered.perc_loon == 'NA' || dataFiltered.perc_loon == 'Inf') {
+          return 'Percentage loon: Ontbreekt'
+        } else {
+          return "Percentage loon: " + dataFiltered.perc_loon + "%";
+        }
       });
     article_pFte
       .text(function(dataFiltered) {
-        return "Omzet per FTE: €" + dataFiltered.omzet_fte;
+        if (dataFiltered.omzet_fte == 'NA' || dataFiltered.omzet_fte == 'Inf') {
+          return 'Percentage loon: Ontbreekt'
+        } else {
+          return "Percentage loon: " + dataFiltered.omzet_fte + "%";
+        }
       });
 
 
@@ -213,7 +225,11 @@ function getInputSearchField() {
       .attr('class', 'winst')
       .attr('id', 'textwinst')
       .text(function(dataFiltered) {
-        return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+        if (dataFiltered.perc_winst == 'NA' || dataFiltered.perc_winst == 'Inf') {
+          return 'Winstpercentage: Ontbreekt'
+        } else {
+          return "Winstpercentage: " + dataFiltered.perc_winst + "%";
+        }
       });
     article
       .append('img')
@@ -226,7 +242,7 @@ function getInputSearchField() {
         } else if (dataFiltered.perc_winst < 10) {
           return "images/icons/check_solid.png";
         } else {
-          return "images/icons/Percentage.png";
+          return "images/icons/missing_violet.png";
         }
       })
       //Loon
@@ -241,7 +257,11 @@ function getInputSearchField() {
       .attr('class', 'loon')
       .attr('id', 'textloon')
       .text(function(dataFiltered) {
-        return "Percentage loon: " + dataFiltered.perc_loon + "%";
+        if (dataFiltered.perc_loon == 'NA' || dataFiltered.perc_loon == 'Inf') {
+          return 'Percentage loon: Ontbreekt'
+        } else {
+          return "Percentage loon: " + dataFiltered.perc_loon + "%";
+        }
       });
     article
       .append('img')
@@ -269,7 +289,12 @@ function getInputSearchField() {
       .attr('class', 'fte')
       .attr('id', 'textfte')
       .text(function(dataFiltered) {
-        return "Omzet per FTE: €" + dataFiltered.omzet_fte;
+        if (dataFiltered.omzet_fte == 'NA' || dataFiltered.omzet_fte == 'Inf') {
+          return 'Omzet per FTE: Ontbreekt'
+        } else {
+
+          return "Omzet per FTE: €" + dataFiltered.omzet_fte;
+        }
       });
     article
       .append('img')
