@@ -1,4 +1,9 @@
-var section = d3.select('#results')
+let section = d3.select('#results')
+let searchButton = document.getElementById("searchButton")
+let name = document.getElementById("name")
+const queryString = window.location.search;
+console.log(queryString);
+// let clickedCompany = a
 
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
@@ -52,7 +57,6 @@ function getInputSearchField() {
         checkdoubleconcerncode.push(foundData[i].concerncode)
         dataFiltered.push(foundData[i])
       }
-      console.log(dataFiltered)
     }
 
     // d3 elements
@@ -86,19 +90,16 @@ function getInputSearchField() {
     article_imgKindOfCare
       .attr("src", function(dataFiltered) {
         if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
-          console.log('thuiszorg' + dataFiltered.thuiszorg)
           return "images/icons/home_white.png";
         } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
-          console.log('gehandicaptenzorg' + dataFiltered.gehandicaptenzorg)
           return "images/icons/handicap_white.png";
         } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
-          console.log('geestelijkegezondheidszorg' + dataFiltered.geestelijkegezondheidszorg)
           return "images/icons/mental_white.png";
         }
       });
     article_a
       .attr("xlink:href", function(dataFiltered) {
-        return "http://zorgcowboys/" + dataFiltered.plaats + dataFiltered.concerncode + ".com"
+        return "/detail.html?" + dataFiltered.concerncode
       });
     article_h2
       .attr('id', 'article_h2')
@@ -107,7 +108,7 @@ function getInputSearchField() {
       })
       // Open new tab
       .on('click', function(dataFiltered) {
-        window.open("http://zorgcowboys/" + dataFiltered.concerncode + ".com")
+        window.location.assign("/detail.html?" + dataFiltered.concerncode)
       });
     article_h3
       .text(function(dataFiltered) {
@@ -198,17 +199,16 @@ function getInputSearchField() {
         }
       });
     article
-      .attr("xlink:href", function(dataFiltered) {
-        return "http://zorgcowboys/" + dataFiltered.plaats + dataFiltered.concerncode + ".com"
+      .attr("xlink:xlink:href", function(dataFiltered) {
+        return "/detail.html?" + dataFiltered.concerncode
       })
       .append('h2')
       .attr('id', 'article_h2')
       .text(function(dataFiltered) {
         return dataFiltered.bedrijfsnaam;
       })
-      // Open new tab
       .on('click', function(dataFiltered) {
-        window.open("http://zorgcowboys/" + dataFiltered.concerncode + ".com")
+        window.location.assign("/detail.html?" + dataFiltered.concerncode)
       });
     article
       .append('h3')
@@ -313,4 +313,6 @@ function getInputSearchField() {
   }
 }
 
-// searchButton.addEventListener("click", getInputSearchField);
+
+
+searchButton.addEventListener("click", getInputSearchField);
