@@ -28,7 +28,7 @@ De data is afkomstig van CIBG, Ministerie van Volksgezondheid, Welzijn en sport.
 
 2. Navigeer in de CLI naar de map waar de applicatie geinstaleerd kan worden
 
-3. Type <br/>
+3. Typ <br/>
 ```
 Git clone https://github.com/marissaverdonck/zorgcowboys.git
 ```
