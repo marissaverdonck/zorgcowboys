@@ -39,13 +39,13 @@ npm install
 ```
 
 ## Tools
-• NPM
-• D3
+* NPM
+* D3
 
 ## Credits
-• Pointer - Voor deze kans, feedback en de data
-• Maaike van Cruchten - Voor de feedback
-• Violet Jim en Rick Bos - Voor de fijne samenwerking en het visuele design
+* Pointer - Voor deze kans, feedback en de data
+* Maaike van Cruchten - Voor de feedback
+* Violet Jim en Rick Bos - Voor de fijne samenwerking en het visuele design
 
 ## License
 [MIT License](https://github.com/marissaverdonck/zorgcowboys/blob/master/license)
