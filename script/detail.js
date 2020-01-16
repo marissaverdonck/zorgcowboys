@@ -14,8 +14,8 @@ fetch('data.json')
   })
 
 function getData(data) {
-  const xValue = d => d.perc_winst;
-  const yValue = d => d.jaar;
+  const yValue = d => d.perc_winst;
+  const xValue = d => d.jaar;
   const margin = { top: 20, right: 20, bottom: 20, left: 20 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
@@ -39,13 +39,13 @@ function getData(data) {
     foundData.jaar = +foundData.jaar;
   })
 
-  var xScale = d3.scaleLinear()
-    .domain([0, d3.max(foundData, xValue)])
-    .range([0, innerWidth]);
+  var yScale = d3.scaleLinear()
+    .domain([0, d3.max(foundData, yValue)])
+    .range([innerHeight, 0]);
 
-  var yScale = d3.scaleBand()
-    .domain(foundData.map(yValue))
-    .range([0, innerHeight])
+  var xScale = d3.scaleBand()
+    .domain(foundData.map(xValue))
+    .range([0, innerWidth])
     .padding(0.1);
 
   const g = winstSVG.append('g')
@@ -55,15 +55,24 @@ function getData(data) {
   //   const yAxis = d3.axisLeft(yScale);
   //   const xAxis = d3.axisBottom(xScale);
 
-  g.append('g').call(d3.axisLeft(yScale));
   g.append('g').call(d3.axisBottom(xScale))
     .attr('transform', `translate(0,${innerHeight})`);
 
+
+  g.append('g').call(d3.axisLeft(yScale))
+    .attr('transform', `translate(0, 0)`)
+
+
+
+
   g.selectAll('rect').data(foundData)
     .enter().append('rect')
-    .attr('y', d => yScale(yValue(d)))
-    .attr('width', d => xScale(xValue(d)))
-    .attr('height', yScale.bandwidth());
+    .attr('x', d => xScale(xValue(d)))
+    // .attr('width', d => xScale(xValue(d)))
+    // .attr('height', yScale.bandwidth());
+    .attr('width', xScale.bandwidth())
+    .attr('height', d => innerHeight - yScale(yValue(d)))
+    .attr('transform', d => `translate(0,${yScale(yValue(d))})`);
 
 
 
