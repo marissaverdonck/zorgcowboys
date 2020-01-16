@@ -99,7 +99,7 @@ function getInputSearchField() {
       });
     article_a
       .attr("xlink:href", function(dataFiltered) {
-        return "detail.html?" + dataFiltered.concerncode
+        return "detail.html?" + "concerncode=" + dataFiltered.concerncode
       });
     article_h2
       .attr('id', 'article_h2')
@@ -108,7 +108,7 @@ function getInputSearchField() {
       })
       // Open new tab
       .on('click', function(dataFiltered) {
-        window.location.assign("detail.html?" + dataFiltered.concerncode)
+        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode)
       });
     article_h3
       .text(function(dataFiltered) {
@@ -200,7 +200,7 @@ function getInputSearchField() {
       });
     article
       .attr("xlink:xlink:href", function(dataFiltered) {
-        return "detail.html?" + dataFiltered.concerncode
+        return "detail.html?" + "concerncode=" + dataFiltered.concerncode
       })
       .append('h2')
       .attr('id', 'article_h2')
@@ -208,7 +208,7 @@ function getInputSearchField() {
         return dataFiltered.bedrijfsnaam;
       })
       .on('click', function(dataFiltered) {
-        window.location.assign("detail.html?" + dataFiltered.concerncode)
+        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode)
       });
     article
       .append('h3')
