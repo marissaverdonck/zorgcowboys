@@ -25,7 +25,7 @@ fetch('data.json')
 function getData(data) {
   const yValue = d => d.perc_winst;
   const xValue = d => d.jaar;
-  const margin = { top: 50, right: 20, bottom: 20, left: 50 };
+  const margin = { top: 50, right: 20, bottom: 20, left: 25 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -118,8 +118,8 @@ function getData(data) {
 
   xAxisG
     .append('text')
-    .attr('y', 40)
-    .attr('x', innerWidth / 2)
+    .attr('y', 18)
+    .attr('x', innerWidth)
     .attr('id', "titelY")
     .text('Jaar');
 
@@ -131,14 +131,14 @@ function getData(data) {
 
   yAxisG
     .append('text')
-    .attr('y', -40)
-    .attr('x', innerHeight / -3.5)
+    .attr('y', -15)
+    .attr('x', 20)
     .attr('id', "titelY")
-    .text('Winstpercentage');
+    .text('Winst%');
 
   yAxisG
     .select('#titelY')
-    .attr('transform', 'rotate(-90) ')
+    // .attr('transform', 'rotate(-90) ')
 
 
 
@@ -161,7 +161,7 @@ function getData(data) {
 
   yAxisG
     .select('#number10txt')
-    .attr('fill', 'red')
+
 
   yAxisG
     .select('#number0')
