@@ -51,29 +51,44 @@ function getData(data) {
     foundData.perc_winst = +foundData.perc_winst;
     foundData.perc_loon = +foundData.perc_loon;
     foundData.omzet_fte = +foundData.omzet_fte;
-
     foundData.jaar = "'" + foundData.jaar.slice(2, 4);;
   })
 
 
-
+  const minValueY = d3.min(foundData, yValue)
   const maxValueY = d3.max(foundData, yValue)
 
-  var domainValueY
-  if (maxValueY < 10) { domainValueY = 10 } else {
-    domainValueY = maxValueY
+  var domainValueYPlus
+  if (maxValueY < 11) { domainValueYPlus = 11 } else {
+    domainValueYPlus = maxValueY + 1
+  }
+  var domainValueYMin
+  if (minValueY < 0) {
+    domainValueYMin = minValueY
+
+  } else {
+    domainValueYMin = 0
   }
 
 
 
-  var yScale = d3.scaleLinear()
-    .domain([0, domainValueY])
+
+
+
+
+  var y = d3.scaleLinear()
+    .domain([domainValueYMin, domainValueYPlus])
     .range([innerHeight, 0])
+    .nice();
+
+
+
+
 
 
   //   var yAxisScale = d3.scaleLinear()
-  //     .domain([d3.min(foundData), d3.max(foundData)])
-  //     .range([innerHeight - yScale(d3.min(foundData)), 0]);
+  //     .domain([d3.min(foundData, yValue), d3.max(foundData, yValue)])
+  //     .range([innerHeight - yScale(d3.min(foundData, yValue)), 0]);
 
 
   var xScale = d3.scaleBand()
@@ -111,7 +126,7 @@ function getData(data) {
 
 
   const yAxisG = g.append('g')
-    .call(d3.axisLeft(yScale))
+    .call(d3.axisLeft(y))
     .attr('transform', `translate(0, 0)`)
 
   yAxisG
@@ -126,32 +141,33 @@ function getData(data) {
     .attr('transform', 'rotate(-90) ')
 
 
+
+
   yAxisG
     .selectAll('.tick line')
     .attr('x2', innerWidth)
+    .attr("id", d => "number" + d)
+
+  yAxisG
+    .select('#number10')
+    .attr('stroke', '#f65645')
+    .attr('stroke-dasharray', 7)
+    .attr('stroke-width', 2)
+
+  yAxisG
+    .select('#number0')
+    .attr('stroke-width', 2)
 
   yAxisG
     .selectAll('.domain')
-    .remove();
+    .attr('stroke', '#d8cedb')
+    .remove()
 
   g.selectAll('rect').data(foundData)
     .enter().append('rect')
     .attr('x', d => xScale(xValue(d)))
+    .attr('y', d => y(Math.max(0, yValue(d))))
     .attr('width', xScale.bandwidth())
-    .attr('height', d => innerHeight - yScale(yValue(d)))
-    .attr('transform', d => `translate(0,${yScale(yValue(d))})`);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .attr('height', d => Math.abs(y(yValue(d)) - y(0)))
+    // .attr('transform', d => `translate(0,${yScale(yValue(d))})`);
 }

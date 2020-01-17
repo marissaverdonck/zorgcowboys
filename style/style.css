@@ -402,6 +402,10 @@
       #winstPercentage .tick line {
         stroke: #d8cedb;
       }
+      
+      #number10 {
+        stroke: #f65645 !important;
+      }
       /* #winstPercentage svg g.tick line {
       display: none;
     }
