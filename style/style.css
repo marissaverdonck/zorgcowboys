@@ -1,423 +1,455 @@
-    @font-face {
-      font-family: tensobold;
-      src: url('tensobold.ttf')
-    }
-    
-    @font-face {
-      font-family: tensoreg;
-      src: url('tensoreg.ttf')
-    }
-    
-    @font-face {
-      font-family: Zilla Slab;
-      src: url('ZillaSlab.ttf')
-    }
-    
-    body {
-      margin: 0 !important;
-    }
-    
-    h1 {
-      font-family: tensobold, Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      margin: 0;
-      font-size: 24px;
-      color: #1d2939;
-    }
-    
-    h2 {
-      font-family: tensobold, Helvetica, Arial, sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-      color: #1d2939;
-    }
-    
-    h3 {
-      font-family: "Zilla Slab", Georgia, serif;
-      color: #6e6e6e;
-      font-size: 14px;
-      font-weight: 200;
-    }
-    
-    p {
-      font-family: "Zilla Slab", Georgia, serif;
-      color: #1d2939;
-      font-size: 1.1em;
-      font-weight: 500;
-    }
-    
-    body {
-      background-color: #F2F2F2;
-    }
-    
-    header {
-      background-color: #1E2938;
-      height: 64px;
-      width: 100%;
-      top: 0;
-      left: 0;
-      position: fixed;
-    }
-    
-    header ul {
-      display: flex;
-      Justify-content: flex-start;
-      margin: 0;
-      padding: 0;
-    }
-    
-    header ul li {
-      list-style: none
-    }
-    
-    header li:nth-child(1) img {
-      padding: 20px 19px;
-      height: 24px;
-    }
-    
-    header li:nth-child(1) {
-      background-color: #d8cedb;
-      height: 64px;
-    }
-    
-    header li:nth-child(2) img {
-      height: 64px;
-    }
-    
-    header li:nth-child(2) {}
-    
-    header li:nth-child(3) img {
-      height: 32px;
-      width: 32px;
-      padding: .9em 1.5em;
-    }
-    
-    header li:nth-child(3) {
-      margin: 0 0 0 auto;
-    }
-    
-    #search {
-      margin: 6em 1em 0 1em;
-      max-width: 22em;
-    }
-    
-    #search div#searchbar {
-      display: flex;
-      border: 2px solid #6933dd;
-      border-radius: 5px;
-      background-color: #ffffff;
-      height: 64px;
-    }
-    
-    #searchbar input[type=search] {
-      margin: 0;
-      padding: .7em .7em .7em 1em;
-      width: 100%;
-      font-family: 'Montserrat';
-      font-size: 90%;
-      height: 64px;
-      -webkit-appearance: none
-    }
-    
-    #searchbar input[type=image] {
-      margin: auto 1.5em;
-      width: 27px;
-      height: auto;
-      right: 1em;
-      top: .7em;
-      background-color: #ffffff;
-    }
-    
-     :focus,
-     :active,
-    input {
-      outline: none;
-      border-width: 0px;
-      /* background-color: #ffffff !important; */
-    }
-    
-    #filter {
-      margin: 1em 0;
-      display: flex;
-      justify-content: space-between;
-    }
-    
-    #filtertitel {
-      font-weight: 900;
-      color: #1d2939
-    }
-    
-    #filter button {
-      background-color: #6933dd;
-      padding: 13px 31px;
-      border-radius: 2px;
-      width: 102px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-    
-    #filter button:hover {
-      background-color: #d8cedb
-    }
-    
-    #filter button:active {
-      background-color: #d8cedb
-    }
-    
-    #filter button:focus {
-      background-color: #d8cedb
-    }
-    
-    #filter img {
-      width: 40px;
-      height: 40px;
-    }
-    
-    #filter p {
-      color: #ffffff;
-      font-size: 12px;
-      margin: 2px auto 13px auto;
-      text-align: center;
-      display: block;
-    }
-    
-    #results {
-      background-color: #F2F2F2;
-      margin: 0 1em;
-      max-width: 22em;
-    }
-    
-    #results article a:hover {
-      text-decoration: underline;
-    }
-    
-    #results article a:active {
-      text-decoration: underline;
-    }
-    
-    #results article a:focus {
-      text-decoration: underline;
-    }
-    
-    #results article h2:hover {
-      text-decoration: underline;
-    }
-    
-    .kindOfCare {
-      background-color: #6b42e5;
-      width: 23px;
-      padding: 6px;
-      display: inline;
-      border-radius: 2px;
-      float: left;
-    }
-    
-    #resultText h1 {
-      display: inline-block;
-      margin: 1px;
-    }
-    
-    #resultText {
-      margin: 1.5em 0;
-    }
-    
-    #resultText h1:nth-child(2) {
-      color: #6b42e5;
-    }
-    
-    #results h2 {
-      display: inline-block;
-      margin: -4px 0 auto .6em;
-      word-break: break-word;
-      max-width: 13em;
-    }
-    
-    #results h3 {
-      margin: 0.1em 0 1em 3.3em;
-    }
-    
-    #results article div {
-      border: solid .5px #f2f2f2;
-    }
-    
-    #results article {
-      background-color: #ffffff;
-      padding: .6em;
-      margin: 1em 0;
-    }
-    
-    #results article p {
-      margin-left: 1em;
-    }
-    
-    .winst {
-      display: inline-block;
-    }
-    
-    img.winst {
-      width: 25px;
-      float: left;
-      margin: 1em 0;
-    }
-    
-    .loon {
-      display: inline-block;
-    }
-    
-    img.loon {
-      width: 25px;
-      float: left;
-      margin: 1em 0;
-    }
-    
-    .fte {
-      display: inline-block;
-    }
-    
-    img.fte {
-      width: 25px;
-      float: left;
-      margin: 1em 0;
-    }
-    
-    img.alert {
-      float: right;
-      margin: 1em 0;
-      width: 25px;
-      margin: 1em 0;
-    }
-    /* -------------------------- Detailpagina -------------------------- */
-    
-    #headerDetailpagina li:nth-child(1) {
-      background-color: #1d2838;
-    }
-    
-    #headerDetailpagina li:nth-child(2) {
-      display: none;
-    }
-    
-    #headerDetailpagina li:nth-child(3) {
-      display: none;
-    }
-    
-    #generalinfo {
-      position: fixed;
-      top: 4em;
-      margin: 0;
-      width: 100%;
-      padding: 1em 1em .7em 1em;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-      background-color: #f2f2f2;
-    }
-    
-    #generalinfo img {
-      background-color: #6b38e8;
-      width: 23px;
-      padding: 6px;
-      display: inline;
-      float: left;
-      border-radius: 2px;
-    }
-    
-    #generalinfo h2 {
-      display: inline-block;
-      max-width: 15em;
-      word-break: break-word;
-      margin: -4px 0 auto .6em;
-      color: #6933dd;
-    }
-    
-    #generalinfo h3 {
-      font-family: "Zilla Slab", Georgia, serif;
-      color: #6e6e6e;
-      font-size: 14px;
-      font-weight: 200;
-      margin: 0.1em 0 0em 3.3em;
-    }
-    
-    #scrollToBottom a {
-      display: block;
-      margin: 8.5em 0 0 0;
-      padding: 0 1em;
-    }
-    
-    #scrollToBottom img {
-      width: 14px;
-      padding: 0 5px;
-    }
-    
-    #scrollToBottom a {
-      font-family: Zilla Slab;
-      font-size: 18px;
-      color: #6933dd
-    }
-    
-    #winstPercentage {
-      margin: 2em 0em;
-      padding: 0 1em;
-    }
-    
-    #winstPercentage h1 {
-      font-size: 32px;
-      color: #1d2939;
-    }
-    
-    #winstPercentage h2 {
-      font-family: tensoreg;
-      font-size: 32px;
-      color: #1d2939;
-      margin: 0.2em 0 0 0;
-      font-weight: 100;
-    }
-    
-    #winstPercentage svg g rect {
-      fill: #6b38e8;
-    }
-    
-    #winstPercentage svg g.tick text {
-      font-family: tensoreg;
-      font-weight: 100;
-      font-size: 14px;
-      fill: #6b38e8;
-    }
-    
-    #winstPercentage svg g text {
-      font-family: tensoreg;
-      font-weight: 100;
-      font-size: 18px;
-      fill: #1d2939
-    }
-    /* #winstPercentage svg g.tick line {
+      @font-face {
+        font-family: tensobold;
+        src: url('tensobold.ttf')
+      }
+      
+      @font-face {
+        font-family: tensoreg;
+        src: url('tensoreg.ttf')
+      }
+      
+      @font-face {
+        font-family: Zilla Slab;
+        src: url('ZillaSlab.ttf')
+      }
+      
+      body {
+        margin: 0 !important;
+      }
+      
+      h1 {
+        font-family: tensobold, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        margin: 0;
+        font-size: 24px;
+        color: #1d2939;
+      }
+      
+      h2 {
+        font-family: tensobold, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: #1d2939;
+      }
+      
+      h3 {
+        font-family: "Zilla Slab", Georgia, serif;
+        color: #6e6e6e;
+        font-size: 14px;
+        font-weight: 200;
+      }
+      
+      p {
+        font-family: "Zilla Slab", Georgia, serif;
+        color: #1d2939;
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+      
+      body {
+        background-color: #F2F2F2;
+      }
+      
+      header {
+        background-color: #1E2938;
+        height: 64px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+      }
+      
+      header ul {
+        display: flex;
+        Justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+      }
+      
+      header ul li {
+        list-style: none
+      }
+      
+      header li:nth-child(1) img {
+        padding: 20px 19px;
+        height: 24px;
+      }
+      
+      header li:nth-child(1) {
+        background-color: #d8cedb;
+        height: 64px;
+      }
+      
+      header li:nth-child(2) img {
+        height: 64px;
+      }
+      
+      header li:nth-child(2) {}
+      
+      header li:nth-child(3) img {
+        height: 32px;
+        width: 32px;
+        padding: .9em 1.5em;
+      }
+      
+      header li:nth-child(3) {
+        margin: 0 0 0 auto;
+      }
+      
+      #search {
+        margin: 6em 1em 0 1em;
+        max-width: 22em;
+      }
+      
+      #search div#searchbar {
+        display: flex;
+        border: 2px solid #6933dd;
+        border-radius: 5px;
+        background-color: #ffffff;
+        height: 64px;
+      }
+      
+      #searchbar input[type=search] {
+        margin: 0;
+        padding: .7em .7em .7em 1em;
+        width: 100%;
+        font-family: 'Montserrat';
+        font-size: 90%;
+        height: 64px;
+        -webkit-appearance: none
+      }
+      
+      #searchbar input[type=image] {
+        margin: auto 1.5em;
+        width: 27px;
+        height: auto;
+        right: 1em;
+        top: .7em;
+        background-color: #ffffff;
+      }
+      
+       :focus,
+       :active,
+      input {
+        outline: none;
+        border-width: 0px;
+        /* background-color: #ffffff !important; */
+      }
+      
+      #filter {
+        margin: 1em 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      #filtertitel {
+        font-weight: 900;
+        color: #1d2939
+      }
+      
+      #filter button {
+        background-color: #6933dd;
+        padding: 13px 31px;
+        border-radius: 2px;
+        width: 102px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: none;
+      }
+      
+      #filter button:hover {
+        background-color: #d8cedb
+      }
+      
+      #filter button:active {
+        background-color: #d8cedb
+      }
+      
+      #filter button:focus {
+        background-color: #d8cedb
+      }
+      
+      #filter img {
+        width: 40px;
+        height: 40px;
+      }
+      
+      #filter p {
+        color: #ffffff;
+        font-size: 12px;
+        margin: 2px auto 13px auto;
+        text-align: center;
+        display: block;
+      }
+      
+      #results {
+        background-color: #F2F2F2;
+        margin: 0 1em;
+        max-width: 22em;
+      }
+      
+      #results article a:hover {
+        text-decoration: underline;
+      }
+      
+      #results article a:active {
+        text-decoration: underline;
+      }
+      
+      #results article a:focus {
+        text-decoration: underline;
+      }
+      
+      #results article h2:hover {
+        text-decoration: underline;
+      }
+      
+      .kindOfCare {
+        background-color: #6b42e5;
+        width: 23px;
+        padding: 6px;
+        display: inline;
+        border-radius: 2px;
+        float: left;
+      }
+      
+      #resultText h1 {
+        display: inline-block;
+        margin: 1px;
+      }
+      
+      #resultText {
+        margin: 1.5em 0;
+      }
+      
+      #resultText h1:nth-child(2) {
+        color: #6b42e5;
+      }
+      
+      #results h2 {
+        display: inline-block;
+        margin: -4px 0 auto .6em;
+        word-break: break-word;
+        max-width: 13em;
+      }
+      
+      #results h3 {
+        margin: 0.1em 0 1em 3.3em;
+      }
+      
+      #results article div {
+        border: solid .5px #f2f2f2;
+      }
+      
+      #results article {
+        background-color: #ffffff;
+        padding: .6em;
+        margin: 1em 0;
+      }
+      
+      #results article p {
+        margin-left: 1em;
+      }
+      
+      .winst {
+        display: inline-block;
+      }
+      
+      img.winst {
+        width: 25px;
+        float: left;
+        margin: 1em 0;
+      }
+      
+      .loon {
+        display: inline-block;
+      }
+      
+      img.loon {
+        width: 25px;
+        float: left;
+        margin: 1em 0;
+      }
+      
+      .fte {
+        display: inline-block;
+      }
+      
+      img.fte {
+        width: 25px;
+        float: left;
+        margin: 1em 0;
+      }
+      
+      img.alert {
+        float: right;
+        margin: 1em 0;
+        width: 25px;
+        margin: 1em 0;
+      }
+      /* -------------------------- Detailpagina -------------------------- */
+      
+      #headerDetailpagina li:nth-child(1) {
+        background-color: #1d2838;
+      }
+      
+      #headerDetailpagina li:nth-child(2) {
+        display: none;
+      }
+      
+      #headerDetailpagina li:nth-child(3) {
+        display: none;
+      }
+      
+      #generalinfo {
+        position: fixed;
+        top: 4em;
+        margin: 0;
+        width: 100%;
+        padding: 1em 1em .7em 1em;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        background-color: #f2f2f2;
+      }
+      
+      #generalinfo img {
+        background-color: #6b38e8;
+        width: 23px;
+        padding: 6px;
+        display: inline;
+        float: left;
+        border-radius: 2px;
+      }
+      
+      #generalinfo h2 {
+        display: inline-block;
+        max-width: 15em;
+        word-break: break-word;
+        margin: -4px 0 auto .6em;
+        color: #6933dd;
+      }
+      
+      #generalinfo h3 {
+        font-family: "Zilla Slab", Georgia, serif;
+        color: #6e6e6e;
+        font-size: 14px;
+        font-weight: 200;
+        margin: 0.1em 0 0em 3.3em;
+      }
+      
+      #scrollToBottom {
+        padding: 0 1em;
+      }
+      
+      #scrollToBottom a {
+        display: block;
+        margin: 8.5em 0 0 0;
+      }
+      
+      #scrollToBottom img {
+        width: 14px;
+        padding: 0 5px;
+      }
+      
+      #scrollToBottom a {
+        font-family: Zilla Slab;
+        font-size: 18px;
+        color: #6933dd
+      }
+      
+      #winstPercentage {
+        margin: 2em 0em;
+        padding: 0 1em;
+      }
+      
+      #winstPercentage h1 {
+        font-size: 32px;
+        color: #1d2939;
+      }
+      
+      #winstPercentage h2 {
+        font-family: tensoreg;
+        font-size: 32px;
+        color: #1d2939;
+        margin: 0.2em 0 0 0;
+        font-weight: 100;
+      }
+      
+      #winstPercentage svg g rect {
+        fill: #6b38e8;
+      }
+      
+      #winstPercentage svg g.tick text {
+        font-family: tensoreg;
+        font-weight: 100;
+        font-size: 14px;
+        fill: #6b38e8;
+      }
+      
+      #winstPercentage svg text#titelY {
+        fill: #6933dd;
+        font-size: 14px;
+      }
+      
+      #winstPercentage svg g text {
+        font-family: tensoreg;
+        font-weight: 100;
+        font-size: 18px;
+        fill: #1d2939
+      }
+      
+      #winstPercentage .tick line {
+        stroke: #d8cedb;
+      }
+      /* #winstPercentage svg g.tick line {
       display: none;
     }
     
     #winstPercentage svg g path.domain {
       display: none;
     } */
-    
-    #loonPercentage {
-      background-color: #faff2e;
-    }
-    
-    #samenvatting {
-      background-color: #ffffff;
-    }
-    
-    #delen {
-      background-color: #1beaae;
-    }
-    
-    #tip {
-      background-color: #ffffff;
-    }
-    
-    @media all and (min-width: 24em) {
-      #search {
-        margin: 6em auto 0 auto;
+      
+      #loonPercentage {
+        background-color: #faff2e;
       }
-      #results {
-        margin: 0em auto 0 auto;
+      
+      #samenvatting {
+        background-color: #ffffff;
       }
-    }
+      
+      #delen {
+        background-color: #1beaae;
+      }
+      
+      #tip {
+        background-color: #ffffff;
+      }
+      /* -------------------------- Bigger device -------------------------- */
+      
+      @media all and (min-width: 24em) {
+        #search {
+          margin: 6em auto 0 auto;
+        }
+        #results {
+          margin: 0em auto 0 auto;
+        }
+      }
+      
+      #generalinfo div {
+        max-width: 22em;
+        margin-left: auto;
+        margin-right: auto
+      }
+      
+      #scrollToBottom {
+        max-width: 22em;
+        margin-left: auto;
+        margin-right: auto
+      }
+      
+      #winstPercentage {
+        max-width: 22em;
+        margin-left: auto;
+        margin-right: auto
+      }

@@ -7,14 +7,12 @@ const winstSVG = d3.select('#winstSVG')
 var jaartal = document.getElementById("jaartal")
 var h2_name = document.getElementById("name")
 var h3_place = document.getElementById("place")
-
+const width = 360
+const height = 300
 
 
 h2_name.innerHTML = name
 h3_place.innerHTML = place
-
-const width = 360
-const height = 300
 
 fetch('data.json')
   .then((response) => {
@@ -27,7 +25,7 @@ fetch('data.json')
 function getData(data) {
   const yValue = d => d.perc_winst;
   const xValue = d => d.jaar;
-  const margin = { top: 50, right: 20, bottom: 20, left: 30 };
+  const margin = { top: 50, right: 20, bottom: 20, left: 50 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
@@ -59,9 +57,24 @@ function getData(data) {
 
 
 
+  const maxValueY = d3.max(foundData, yValue)
+
+  var domainValueY
+  if (maxValueY < 10) { domainValueY = 10 } else {
+    domainValueY = maxValueY
+  }
+
+
+
   var yScale = d3.scaleLinear()
-    .domain([0, d3.max(foundData, yValue)])
-    .range([innerHeight, -10]);
+    .domain([0, domainValueY])
+    .range([innerHeight, 0])
+
+
+  //   var yAxisScale = d3.scaleLinear()
+  //     .domain([d3.min(foundData), d3.max(foundData)])
+  //     .range([innerHeight - yScale(d3.min(foundData)), 0]);
+
 
   var xScale = d3.scaleBand()
     .domain(foundData.map(xValue))
@@ -77,8 +90,7 @@ function getData(data) {
   //   const yAxis = d3.axisLeft(yScale);
   //   const xAxis = d3.axisBottom(xScale);
 
-  const xAxis = d3.axisBottom(xScale)
-    .tickSize(90)
+
 
   const xAxisG = g.append('g')
     .call(d3.axisBottom(xScale))
@@ -88,13 +100,13 @@ function getData(data) {
     .selectAll('.domain, .tick line')
     .remove();
 
-  //   xAxisG
-  //     .append('text')
-  //     .attr('y', 40)
-  //     .attr('x', innerWidth / 2)
-  //     .attr('fill', 'black')
-  //     .text('Jaartal');
 
+  xAxisG
+    .append('text')
+    .attr('y', 40)
+    .attr('x', innerWidth / 2)
+    .attr('id', "titelY")
+    .text('Jaar');
 
 
 
@@ -102,10 +114,24 @@ function getData(data) {
     .call(d3.axisLeft(yScale))
     .attr('transform', `translate(0, 0)`)
 
+  yAxisG
+    .append('text')
+    .attr('y', -40)
+    .attr('x', innerHeight / -3.5)
+    .attr('id', "titelY")
+    .text('Winstpercentage');
+
+  yAxisG
+    .select('#titelY')
+    .attr('transform', 'rotate(-90) ')
 
 
   yAxisG
-    .selectAll('.domain, .tick line')
+    .selectAll('.tick line')
+    .attr('x2', innerWidth)
+
+  yAxisG
+    .selectAll('.domain')
     .remove();
 
   g.selectAll('rect').data(foundData)
