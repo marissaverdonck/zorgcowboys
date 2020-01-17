@@ -25,7 +25,7 @@ fetch('data.json')
 function getData(data) {
   const yValue = d => d.perc_winst;
   const xValue = d => d.jaar;
-  const margin = { top: 50, right: 20, bottom: 20, left: 25 };
+  const margin = { top: 50, right: 20, bottom: 20, left: 26 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
 
