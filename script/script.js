@@ -99,7 +99,7 @@ function getInputSearchField() {
       });
     article_a
       .attr("xlink:href", function(dataFiltered) {
-        return "zorgcowboys/detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats
+        return "detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats
       });
     article_h2
       .attr('id', 'article_h2')
@@ -108,7 +108,7 @@ function getInputSearchField() {
       })
       // Open new tab
       .on('click', function(dataFiltered) {
-        window.location.assign("zorgcowboys/detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats)
+        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats)
       });
     article_h3
       .text(function(dataFiltered) {
@@ -200,7 +200,7 @@ function getInputSearchField() {
       });
     article
       .attr("xlink:xlink:href", function(dataFiltered) {
-        return "zorgcowboys/detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats
+        return "detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats
       })
       .append('h2')
       .attr('id', 'article_h2')
@@ -208,7 +208,7 @@ function getInputSearchField() {
         return dataFiltered.bedrijfsnaam;
       })
       .on('click', function(dataFiltered) {
-        window.location.assign("zorgcowboys/detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats)
+        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats)
       });
     article
       .append('h3')
