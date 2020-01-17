@@ -149,10 +149,19 @@ function getData(data) {
     .attr("id", d => "number" + d)
 
   yAxisG
+    .selectAll('.tick text')
+
+  .attr("id", d => "numbertxt" + d)
+
+  yAxisG
     .select('#number10')
     .attr('stroke', '#f65645')
     .attr('stroke-dasharray', 7)
     .attr('stroke-width', 2)
+
+  yAxisG
+    .select('#number10txt')
+    .attr('fill', 'red')
 
   yAxisG
     .select('#number0')
@@ -163,11 +172,34 @@ function getData(data) {
     .attr('stroke', '#d8cedb')
     .remove()
 
-  g.selectAll('rect').data(foundData)
-    .enter().append('rect')
-    .attr('x', d => xScale(xValue(d)))
-    .attr('y', d => y(Math.max(0, yValue(d))))
-    .attr('width', xScale.bandwidth())
-    .attr('height', d => Math.abs(y(yValue(d)) - y(0)))
-    // .attr('transform', d => `translate(0,${yScale(yValue(d))})`);
+  // g.selectAll('rect').data(foundData)
+  //   .enter().append('rect')
+  //   .attr('x', d => xScale(xValue(d)))
+  //   .attr('y', d => y(Math.max(0, yValue(d))))
+  //   .attr('width', xScale.bandwidth())
+  //   .attr('height', d => Math.abs(y(yValue(d)) - y(0)))
+  g.selectAll('a').data(foundData)
+    .enter()
+    .append('line')
+    .attr("x1", d => xScale(xValue(d)))
+    .attr("x2", d => xScale(xValue(d)))
+    .attr("y1", d => y(0))
+    .attr("y2", d => y(yValue(d)))
+    .attr("stroke", "#6b38e8")
+    .attr('stroke-width', 1.5)
+
+  g.selectAll('circle').data(foundData)
+    .enter().append('circle')
+    .attr("cx", d => xScale(xValue(d)))
+    .attr("cy", d => y(yValue(d)))
+    .attr("r", "4")
+    .style("fill", "#F2F2F2")
+    .attr("stroke", "#6b38e8")
+    .attr('stroke-width', 1.5)
+
+
+
+
+
+  // .attr('transform', d => `translate(0,${yScale(yValue(d))})`);
 }

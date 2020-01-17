@@ -406,6 +406,10 @@
       #number10 {
         stroke: #f65645 !important;
       }
+      
+      #numbertxt10 {
+        fill: #f65645 !important;
+      }
       /* #winstPercentage svg g.tick line {
       display: none;
     }
