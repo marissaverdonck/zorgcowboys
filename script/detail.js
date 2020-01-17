@@ -7,7 +7,7 @@ const winstSVG = d3.select('#winstSVG')
 var jaartal = document.getElementById("jaartal")
 var h2_name = document.getElementById("name")
 var h3_place = document.getElementById("place")
-const width = 360
+const width = 350
 const height = 300
 
 
