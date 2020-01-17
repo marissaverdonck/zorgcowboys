@@ -4,8 +4,17 @@
     }
     
     @font-face {
+      font-family: tensoreg;
+      src: url('tensoreg.ttf')
+    }
+    
+    @font-face {
       font-family: Zilla Slab;
       src: url('ZillaSlab.ttf')
+    }
+    
+    body {
+      margin: 0 !important;
     }
     
     h1 {
@@ -88,7 +97,7 @@
     }
     
     #search {
-      margin: 6em .8em 0 .8em;
+      margin: 6em 1em 0 1em;
       max-width: 22em;
     }
     
@@ -176,7 +185,7 @@
     
     #results {
       background-color: #F2F2F2;
-      margin: 0 .8em;
+      margin: 0 1em;
       max-width: 22em;
     }
     
@@ -220,7 +229,7 @@
     
     #results h2 {
       display: inline-block;
-      margin: 0 0 auto .6em;
+      margin: -4px 0 auto .6em;
       word-break: break-word;
       max-width: 13em;
     }
@@ -279,7 +288,7 @@
       width: 25px;
       margin: 1em 0;
     }
-    /* Detailpagina */
+    /* -------------------------- Detailpagina -------------------------- */
     
     #headerDetailpagina li:nth-child(1) {
       background-color: #1d2838;
@@ -294,8 +303,99 @@
     }
     
     #generalinfo {
-      margin-top: 5em
+      position: fixed;
+      top: 4em;
+      margin: 0;
+      width: 100%;
+      padding: 1em 1em .7em 1em;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      background-color: #f2f2f2;
     }
+    
+    #generalinfo img {
+      background-color: #6b38e8;
+      width: 23px;
+      padding: 6px;
+      display: inline;
+      float: left;
+      border-radius: 2px;
+    }
+    
+    #generalinfo h2 {
+      display: inline-block;
+      max-width: 15em;
+      word-break: break-word;
+      margin: -4px 0 auto .6em;
+      color: #6933dd;
+    }
+    
+    #generalinfo h3 {
+      font-family: "Zilla Slab", Georgia, serif;
+      color: #6e6e6e;
+      font-size: 14px;
+      font-weight: 200;
+      margin: 0.1em 0 0em 3.3em;
+    }
+    
+    #scrollToBottom a {
+      display: block;
+      margin: 8.5em 0 0 0;
+      padding: 0 1em;
+    }
+    
+    #scrollToBottom img {
+      width: 14px;
+      padding: 0 5px;
+    }
+    
+    #scrollToBottom a {
+      font-family: Zilla Slab;
+      font-size: 18px;
+      color: #6933dd
+    }
+    
+    #winstPercentage {
+      margin: 2em 0em;
+      padding: 0 1em;
+    }
+    
+    #winstPercentage h1 {
+      font-size: 32px;
+      color: #1d2939;
+    }
+    
+    #winstPercentage h2 {
+      font-family: tensoreg;
+      font-size: 32px;
+      color: #1d2939;
+      margin: 0.2em 0 0 0;
+      font-weight: 100;
+    }
+    
+    #winstPercentage svg g rect {
+      fill: #6b38e8;
+    }
+    
+    #winstPercentage svg g.tick text {
+      font-family: tensoreg;
+      font-weight: 100;
+      font-size: 14px;
+      fill: #6b38e8;
+    }
+    
+    #winstPercentage svg g text {
+      font-family: tensoreg;
+      font-weight: 100;
+      font-size: 18px;
+      fill: #1d2939
+    }
+    /* #winstPercentage svg g.tick line {
+      display: none;
+    }
+    
+    #winstPercentage svg g path.domain {
+      display: none;
+    } */
     
     #loonPercentage {
       background-color: #faff2e;
