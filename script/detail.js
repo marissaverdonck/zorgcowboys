@@ -309,7 +309,7 @@ function getData(data) {
   xAxisGLoon
     .append('text')
     .attr('y', innerHeightLoon - 55)
-    .attr('x', innerWidthLoon / 100 * loonData.perc_loon + 35)
+    .attr('x', innerWidthLoon / 100 * loonData.perc_loon + 40)
     .attr('id', "titelY")
     .attr('fill', "#6b38e8")
     .text(Math.floor(loonData.perc_loon) + '%');

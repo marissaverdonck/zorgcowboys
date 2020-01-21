@@ -431,10 +431,10 @@ img.alert {
 }
 
 .important {
-  /* font-weight: bolder !important; */
+  font-weight: bold !important;
   display: inline;
-  /* color: #000000; */
-  color: #f65645;
+  color: #000000;
+  /* color: #f65645; */
 }
 
 #winstPercentage svg {
@@ -609,6 +609,7 @@ img.alert {
   flex-direction: row;
   border: none;
   position: relative;
+  font-weight: 200;
 }
 
 #delen button:hover {
@@ -653,6 +654,7 @@ img.alert {
   height: 48px;
   border: none;
   text-decoration: none;
+  font-weight: 200;
 }
 
 #tip button:hover {
