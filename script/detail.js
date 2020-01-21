@@ -413,9 +413,9 @@ function getData(data) {
 
 
 
-
-  //Summary fill in
-  samenvattingWinst.innerHTML = (winstData.perc_winst + '%')
-  samenvattingLoon.innerHTML = (Math.floor(loonData.perc_loon) + '%')
-  samenvattingFte.innerHTML = ('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-')
+  console.log(winstData.perc_winst + '%')
+    //Summary fill in
+  samenvattingWinst.innerHTML = (winstData.perc_winst + '%');
+  samenvattingLoon.innerHTML = (Math.floor(loonData.perc_loon) + '%');
+  samenvattingFte.innerHTML = ('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-');
 }
