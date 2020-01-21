@@ -9,6 +9,9 @@ const fteSVG = d3.select('#fteSVG');
 const jaartal = document.getElementById("jaartal");
 const h2_name = document.getElementById("name");
 const h3_place = document.getElementById("place");
+const samenvattingWinst = document.getElementById("samenvattingWinst");
+const samenvattingLoon = document.getElementById("samenvattingLoon");
+const samenvattingFte = document.getElementById("samenvattingFte");
 const width = 280;
 const height = 330;
 const widthLoon = 280;
@@ -17,7 +20,7 @@ const widthFte = 210;
 const heightFte = 300;
 const margin = { top: 50, right: 0, bottom: 20, left: 28 };
 const marginLoon = { top: 45, right: 40, bottom: 5, left: 0 };
-const marginFte = { top: 60, right: 40, bottom: 5, left: 0 };
+const marginFte = { top: 60, right: 0, bottom: 5, left: 0 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 const innerWidthLoon = widthLoon - marginLoon.left - marginLoon.right;
@@ -63,9 +66,33 @@ function getData(data) {
 
 
 
+
   // Get data from latetst year and make a new array
   // Loonpercentage
   const maxYear = d3.max(foundData, xValue)
+    // Winst
+  const winstData = new Object();
+  const WinstDataArray = [winstData]
+  var i;
+  for (i = 0; i < foundData.length; i++) {
+    if (foundData[i].jaar == maxYear && isNaN(foundData[i].perc_winst) == false) {
+      winstData.jaar = foundData[i].jaar;
+      winstData.perc_winst = foundData[i].perc_winst;
+      console.log(winstData)
+    } else if (foundData[i].jaar == (maxYear - 1) && isNaN(foundData[i].perc_winst) == false) {
+      winstData.jaar = foundData[i].jaar;
+      winstData.perc_winst = foundData[i].perc_winst;
+
+    } else if (foundData[i].jaar == (maxYear - 2) && isNaN(foundData[i].perc_winst) == false) {
+      winstData.jaar = foundData[i].jaar;
+      winstData.perc_winst = foundData[i].perc_winst;
+
+    } else {}
+  }
+
+
+
+
   const loonData = new Object();
   const loonDataArray = [loonData]
   var i;
@@ -81,10 +108,7 @@ function getData(data) {
     } else if (foundData[i].jaar == (maxYear - 2) && isNaN(foundData[i].perc_loon) == false) {
       loonData.jaar = foundData[i].jaar;
       loonData.perc_loon = foundData[i].perc_loon;
-
-    } else {
-
-    }
+    } else {}
   }
   // Omzet FTE
   const fteData = new Object();
@@ -103,9 +127,7 @@ function getData(data) {
       fteData.jaar = foundData[i].jaar;
       fteData.omzet_fte = foundData[i].omzet_fte;
 
-    } else {
-
-    }
+    } else {}
   }
 
   // change strings to numbers
@@ -139,13 +161,6 @@ function getData(data) {
     domainValueYFte = maxValueYFte
   }
 
-
-
-  // const maxValueXLoon = loonData.perc_loon;
-  // let domainValueXLoon;
-  // if (maxValueXLoon < 40) { domainValueXLoon = 40 } else {
-  //   domainValueXLoon = domainValueXLoon
-  // }
 
 
 
@@ -341,7 +356,7 @@ function getData(data) {
   gFte.selectAll('rect').data(fteDataArray)
     .enter().append('rect')
     .attr('x', 20)
-    .attr('width', 160)
+    .attr('width', 180)
     .attr('height', d => innerHeightFte - yScaleFte(yValueFte(d)))
     .attr("fill", "#1beaae")
     .attr('transform', d => `translate(0,${yScaleFte(yValueFte(d))})`);
@@ -391,7 +406,7 @@ function getData(data) {
     .append('text')
     .attr('y', innerHeightFte - (innerHeightFte / domainValueYFte * fteData.omzet_fte) + 30)
     // .attr('y', 0)
-    .attr('x', -innerWidthFte + 50)
+    .attr('x', -innerWidthFte + 60)
     .attr('id', "titelYFte")
     .attr('fill', "#6b38e8")
     .text('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-');
@@ -401,5 +416,8 @@ function getData(data) {
 
 
 
-
+  //Summary fill in
+  samenvattingWinst.innerHTML = (winstData.perc_winst + '%')
+  samenvattingLoon.innerHTML = (Math.floor(loonData.perc_loon) + '%')
+  samenvattingFte.innerHTML = ('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-')
 }
