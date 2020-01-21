@@ -43,11 +43,16 @@ h3 {
   font-weight: 200;
 }
 
+h4 {
+  color: #1d2939;
+}
+
 p {
   font-family: "Zilla Slab", Georgia, serif;
   color: #1d2939;
   font-size: 18px;
   font-weight: 500;
+  line-height: 1.4;
 }
 
 body {
@@ -124,13 +129,16 @@ header li:nth-child(3) {
   -webkit-appearance: none
 }
 
-#searchbar input[type=image] {
+#searchbar a {
   margin: auto 1.5em;
-  width: 27px;
   height: auto;
   right: 1em;
   top: .7em;
   background-color: #ffffff;
+}
+
+#searchbar input[type=image] {
+  width: 27px;
 }
 
  :focus,
@@ -191,7 +199,7 @@ input {
 
 #results {
   background-color: #F2F2F2;
-  margin: 0 1em;
+  margin: 6em 1em 0 1em;
   max-width: 22em;
 }
 
@@ -237,7 +245,7 @@ input {
   display: inline-block;
   margin: -4px 0 auto .6em;
   word-break: break-word;
-  max-width: 12em;
+  max-width: 14em;
 }
 
 #results h3 {
@@ -296,6 +304,34 @@ img.alert {
   margin: 1em 0;
   position: absolute;
   right: 1em;
+}
+
+
+/* -------------------------- Resultatenpagina -------------------------- */
+
+#headerResultatenpagina li:nth-child(1) {
+  background-color: #1d2838;
+}
+
+#headerResultatenpagina li:nth-child(2) {
+  display: none;
+}
+
+#headerResultatenpagina li:nth-child(3) {
+  font-family: Zilla Slab;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 20px 0px
+}
+
+#headerResultatenpagina li:nth-child(4) {
+  margin: auto 0;
+}
+
+#headerResultatenpagina li:nth-child(4) img {
+  width: 21px;
+  height: 21px;
+  padding: 21px 19px 21px 10px;
 }
 
 
@@ -395,9 +431,10 @@ img.alert {
 }
 
 .important {
-  font-weight: bolder !important;
+  /* font-weight: bolder !important; */
   display: inline;
-  color: #000000;
+  /* color: #000000; */
+  color: #f65645;
 }
 
 #winstPercentage svg {

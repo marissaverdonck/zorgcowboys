@@ -1,8 +1,7 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const concerncode = urlParams.get('concerncode');
-const name = urlParams.get('name');
-const place = urlParams.get('place');
+const searchword = urlParams.get('search');
 const winstSVG = d3.select('#winstSVG');
 const loonSVG = d3.select('#loonSVG');
 const fteSVG = d3.select('#fteSVG');
@@ -12,6 +11,7 @@ const h3_place = document.getElementById("place");
 const samenvattingWinst = document.getElementById("samenvattingWinst");
 const samenvattingLoon = document.getElementById("samenvattingLoon");
 const samenvattingFte = document.getElementById("samenvattingFte");
+const backbutton = document.getElementById("back");
 const width = 280;
 const height = 330;
 const widthLoon = 280;
@@ -30,6 +30,7 @@ const innerHeightFte = heightFte - marginFte.top - marginFte.bottom;
 
 h2_name.innerHTML = name
 h3_place.innerHTML = place
+backbutton.setAttribute("href", "resultaten.html?search=" + searchword)
 
 fetch('data.json')
   .then((response) => {
