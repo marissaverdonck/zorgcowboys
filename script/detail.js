@@ -30,7 +30,7 @@ const innerHeightFte = heightFte - marginFte.top - marginFte.bottom;
 
 h2_name.innerHTML = name
 h3_place.innerHTML = place
-backbutton.setAttribute("href", "resultaten.html?search=" + searchword)
+backbutton.setAttribute("href", "result.html?search=" + searchword)
 
 fetch('data.json')
   .then((response) => {
