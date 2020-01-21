@@ -53,11 +53,15 @@ function getInputSearchField() {
       if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar == 2018) {
         checkdoubleconcerncode.push(foundData[i].concerncode)
         dataFiltered.push(foundData[i])
-      } else if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar == 2017) {
-        checkdoubleconcerncode.push(foundData[i].concerncode)
-        dataFiltered.push(foundData[i])
       }
+      // else if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar > 2017) {
+      //   checkdoubleconcerncode.push(foundData[i].concerncode)
+      //   dataFiltered.push(foundData[i])
+      // }
     }
+
+
+
 
     // d3 elements
     // selectAll (li), because li dont excist, it can  be updatet. 
@@ -99,7 +103,7 @@ function getInputSearchField() {
       });
     article_a
       .attr("xlink:href", function(dataFiltered) {
-        return "detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats
+        return "detail.html?" + "concerncode=" + dataFiltered.concerncode
       });
     article_h2
       .attr('id', 'article_h2')
@@ -108,7 +112,7 @@ function getInputSearchField() {
       })
       // Open new tab
       .on('click', function(dataFiltered) {
-        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats)
+        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode)
       });
     article_h3
       .text(function(dataFiltered) {
@@ -200,7 +204,7 @@ function getInputSearchField() {
       });
     article
       .attr("xlink:xlink:href", function(dataFiltered) {
-        return "detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats
+        return "detail.html?" + "concerncode=" + dataFiltered.concerncode
       })
       .append('h2')
       .attr('id', 'article_h2')
@@ -208,7 +212,7 @@ function getInputSearchField() {
         return dataFiltered.bedrijfsnaam;
       })
       .on('click', function(dataFiltered) {
-        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode + "&name=" + dataFiltered.bedrijfsnaam + "&place=" + dataFiltered.plaats)
+        window.location.assign("detail.html?" + "concerncode=" + dataFiltered.concerncode)
       });
     article
       .append('h3')

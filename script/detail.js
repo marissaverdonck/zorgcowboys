@@ -78,15 +78,12 @@ function getData(data) {
     if (foundData[i].jaar == maxYear && isNaN(foundData[i].perc_winst) == false) {
       winstData.jaar = foundData[i].jaar;
       winstData.perc_winst = foundData[i].perc_winst;
-      console.log(winstData)
     } else if (foundData[i].jaar == (maxYear - 1) && isNaN(foundData[i].perc_winst) == false) {
       winstData.jaar = foundData[i].jaar;
       winstData.perc_winst = foundData[i].perc_winst;
-
     } else if (foundData[i].jaar == (maxYear - 2) && isNaN(foundData[i].perc_winst) == false) {
       winstData.jaar = foundData[i].jaar;
       winstData.perc_winst = foundData[i].perc_winst;
-
     } else {}
   }
 
@@ -100,7 +97,8 @@ function getData(data) {
     if (foundData[i].jaar == maxYear && isNaN(foundData[i].perc_loon) == false) {
       loonData.jaar = foundData[i].jaar;
       loonData.perc_loon = foundData[i].perc_loon;
-
+      h2_name.innerHTML = foundData[i].bedrijfsnaam
+      h3_place.innerHTML = foundData[i].plaats
     } else if (foundData[i].jaar == (maxYear - 1) && isNaN(foundData[i].perc_loon) == false) {
       loonData.jaar = foundData[i].jaar;
       loonData.perc_loon = foundData[i].perc_loon;

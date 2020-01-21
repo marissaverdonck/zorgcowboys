@@ -365,7 +365,8 @@ img.alert {
 #scrollToBottom a {
   font-family: Zilla Slab;
   font-size: 18px;
-  color: #6933dd
+  color: #6933dd;
+  text-decoration: none
 }
 
 #winstPercentage {
@@ -521,7 +522,7 @@ img.alert {
 
 #delen {
   background-color: #1beaae;
-  padding: 2em 1em 2em 1em;
+  padding: 2em 1em 2.5em 1em;
   margin: 2em 0;
 }
 
@@ -529,10 +530,63 @@ img.alert {
   font-size: 32px;
 }
 
+#delen button {
+  background-color: #6933dd;
+  border-radius: 5px;
+  width: 100%;
+  height: 48px;
+  margin: 2em auto 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  border: none;
+  position: relative;
+}
+
+#delen button:hover {
+  transition: fill .2s ease;
+  background-color: #6039c1;
+}
+
+#delen button img {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 1em;
+  top: .6em
+}
+
+#delen button p {
+  font-family: TensoBold;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
 #tip {
   background-color: #ffffff;
-  padding: 2em 1em 2em 1em;
+  padding: 2em 1em 2.5em 1em;
   margin: 2em 0;
+}
+
+#tip button {
+  font-family: TensoBold;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  margin: 1.5em auto 0 auto;
+  background-color: #1d2939;
+  border-radius: 5px;
+  width: 100%;
+  height: 48px;
+  border: none;
+}
+
+#tip button:hover {
+  background-color: #363d48;
 }
 
 #tip h1 {
