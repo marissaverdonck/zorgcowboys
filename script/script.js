@@ -122,7 +122,7 @@ function getInputSearchField() {
     article_pWinst
       .text(function(dataFiltered) {
         if (dataFiltered.perc_winst == 'NA' || dataFiltered.perc_winst == 'Inf') {
-          return 'Winstpercentage: Ontbreekt'
+          return 'Winstpercentage: ontbreekt'
         } else {
           return "Winstpercentage: " + dataFiltered.perc_winst + "%";
         }
@@ -130,7 +130,7 @@ function getInputSearchField() {
     article_pLoon
       .text(function(dataFiltered) {
         if (dataFiltered.perc_loon == 'NA' || dataFiltered.perc_loon == 'Inf') {
-          return 'Percentage loon: Ontbreekt'
+          return 'Percentage loon: ontbreekt'
         } else {
           return "Percentage loon: " + dataFiltered.perc_loon + "%";
         }
@@ -138,9 +138,9 @@ function getInputSearchField() {
     article_pFte
       .text(function(dataFiltered) {
         if (dataFiltered.omzet_fte == 'NA' || dataFiltered.omzet_fte == 'Inf') {
-          return 'Percentage loon: Ontbreekt'
+          return 'Percentage loon: ontbreekt'
         } else {
-          return "Percentage loon: " + dataFiltered.omzet_fte + "%";
+          return "Percentage loon: " + Math.floor(dataFiltered.omzet_fte) + "%";
         }
       });
 
@@ -226,7 +226,7 @@ function getInputSearchField() {
       .attr('id', 'textwinst')
       .text(function(dataFiltered) {
         if (dataFiltered.perc_winst == 'NA' || dataFiltered.perc_winst == 'Inf') {
-          return 'Winstpercentage: Ontbreekt'
+          return 'Winstpercentage: ontbreekt'
         } else {
           return "Winstpercentage: " + dataFiltered.perc_winst + "%";
         }
@@ -258,7 +258,7 @@ function getInputSearchField() {
       .attr('id', 'textloon')
       .text(function(dataFiltered) {
         if (dataFiltered.perc_loon == 'NA' || dataFiltered.perc_loon == 'Inf') {
-          return 'Percentage loon: Ontbreekt'
+          return 'Percentage loon: ontbreekt'
         } else {
           return "Percentage loon: " + dataFiltered.perc_loon + "%";
         }
@@ -290,10 +290,10 @@ function getInputSearchField() {
       .attr('id', 'textfte')
       .text(function(dataFiltered) {
         if (dataFiltered.omzet_fte == 'NA' || dataFiltered.omzet_fte == 'Inf') {
-          return 'Omzet per FTE: Ontbreekt'
+          return 'Omzet per FTE: ontbreekt'
         } else {
 
-          return "Omzet per FTE: €" + dataFiltered.omzet_fte;
+          return "Omzet per FTE: €" + Math.floor(dataFiltered.omzet_fte);
         }
       });
     article
