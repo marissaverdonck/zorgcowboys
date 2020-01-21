@@ -469,6 +469,23 @@ img.alert {
   font-size: 32px;
 }
 
+#omzetPerFte svg {
+  margin-left: -1em
+}
+
+#numbertxt120000 {
+  fill: #f65645 !important;
+  font-size: 18px;
+  font-family: tensobold;
+  font-weight: 900;
+}
+
+#omzetPerFte svg text#titelYFte {
+  font-display: tensobold;
+  font-size: 24px;
+  font-weight: 900;
+}
+
 #samenvatting {
   background-color: #ffffff;
   padding: 2em 1em 2em 1em;
@@ -477,8 +494,6 @@ img.alert {
 
 #samenvatting h1 {
   font-size: 32px;
-  margin: 0;
-  padding: 0
 }
 
 #delen {
@@ -487,10 +502,18 @@ img.alert {
   margin: 2em 0;
 }
 
+#delen h1 {
+  font-size: 32px;
+}
+
 #tip {
   background-color: #ffffff;
   padding: 2em 1em 2em 1em;
   margin: 2em 0;
+}
+
+#tip h1 {
+  font-size: 32px;
 }
 
 
