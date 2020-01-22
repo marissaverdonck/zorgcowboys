@@ -154,6 +154,14 @@ input {
   /* background-color: #ffffff !important; */
 }
 
+#search h1 {
+  margin-top: 1em;
+}
+
+.searchResults {
+  margin-top: 1em !important
+}
+
 #filter {
   margin: 1em 0;
   display: flex;
@@ -161,6 +169,7 @@ input {
 }
 
 #filtertitel {
+  font-size: 14px;
   font-weight: 900;
   color: #1d2939
 }
@@ -848,7 +857,7 @@ img.alert {
     margin-right: auto;
   }
   #intro1 h1 {
-    font-size: 2.5em;
+    font-size: 2.3em;
   }
   #titel1 {
     padding-top: 2em;
