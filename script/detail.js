@@ -63,11 +63,6 @@ function getData(data) {
   // Show years in title Winstpercentage
   jaartal.innerHTML = (d3.min(foundData, xValue) + "-" + d3.max(foundData, xValue))
 
-
-
-
-
-
   // Get data from latetst year and make a new array
   // Loonpercentage
   const maxYear = d3.max(foundData, xValue)
@@ -87,9 +82,6 @@ function getData(data) {
       winstData.perc_winst = foundData[i].perc_winst;
     } else {}
   }
-
-
-
 
   const loonData = new Object();
   const loonDataArray = [loonData]
@@ -399,7 +391,7 @@ function getData(data) {
     .remove()
 
   function thousands_separators(num) {
-    var num_parts = num.toString().split(".");
+    let num_parts = num.toString().split(".");
     num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return num_parts.join(".");
   }

@@ -933,6 +933,10 @@ img.alert {
   margin: 0 .5em !important;
 }
 
+.steps img {
+  width: .8em;
+}
+
 #icontop {
   width: auto;
   height: 83px;
