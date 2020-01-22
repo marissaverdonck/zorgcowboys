@@ -445,6 +445,16 @@ img.alert {
   padding: .5em;
 }
 
+.difficult:active+.tooltip {
+  display: inline-flex;
+  opacity: 1;
+  margin-top: -6em;
+  margin-left: -10em;
+  width: 15em;
+  background-color: #ffffff;
+  padding: .5em;
+}
+
 .tooltip2 {
   opacity: 0;
   position: absolute;
@@ -452,6 +462,16 @@ img.alert {
 }
 
 .difficult:hover+.tooltip2 {
+  display: inline-flex;
+  opacity: 1;
+  margin-top: -9em;
+  margin-left: -10em;
+  width: 15em;
+  background-color: #ffffff;
+  padding: .5em;
+}
+
+.difficult:active+.tooltip2 {
   display: inline-flex;
   opacity: 1;
   margin-top: -9em;
