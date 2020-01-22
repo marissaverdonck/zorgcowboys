@@ -1,8 +1,9 @@
 let section = d3.select('#results')
 let searchButton = document.getElementById("searchButton")
 let name = document.getElementById("name")
-
-
+let filterThuis = document.getElementById("filterThuis")
+let filterHandicap = document.getElementById("filterHandicap")
+let filterGeestelijk = document.getElementById("filterGeestelijk")
 
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
@@ -18,10 +19,7 @@ function getInputSearchField() {
   }
   searchButton.setAttribute("href", "result.html?search=" + inputText)
 }
-
 searchButton.addEventListener("click", getInputSearchField);
-
-
 
 // Fetch gives access to the json file
 // .then wait till data is loaded, otherwise crash
@@ -34,24 +32,6 @@ fetch('data.json')
   })
 
 function getData(data) {
-
-
-
-  // var foundData;
-  // // filter the data by input search field
-  // function searchData(inputText) {
-  //   // Get de style differences out of the data
-  //   return data.filter(
-  //     function(data) {
-  //       var inputLowerCase = inputText.toLowerCase()
-  //       var placeLowerCase = data.plaats.toLowerCase()
-  //       var companyLowerCase = data.bedrijfsnaam.toLowerCase()
-  //       var searchInDataFields = inputLowerCase == placeLowerCase || inputLowerCase == companyLowerCase
-  //       return searchInDataFields
-  //     }
-  //   );
-  // }
-
   //Filter on double concerncodes and latest years (2017/2018)
   var i = 0;
   var checkdoubleconcerncode = [];
@@ -61,15 +41,8 @@ function getData(data) {
       checkdoubleconcerncode.push(data[i].concerncode)
       dataFiltered.push(data[i])
     }
-    // else if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar > 2017) {
-    //   checkdoubleconcerncode.push(foundData[i].concerncode)
-    //   dataFiltered.push(foundData[i])
-    // }
   }
-  console.log(data)
   console.log(dataFiltered)
-
-
 
 
   // d3 elements
@@ -323,4 +296,42 @@ function getData(data) {
         return "images/icons/missing_violet.png";
       }
     })
+  return dataFiltered
 }
+
+
+// // Get de style differences out of the data
+// const geestelijkegezondheidszorgLowerCase = data.geestelijkegezondheidszorg.toLowerCase()
+// const gehandicaptenzorgLowerCase = data.gehandicaptenzorg.toLowerCase()
+// const thuiszorgLowerCase = data.thuiszorg.toLowerCase()
+//   // filter the data by input search field
+// function filterGeestelijkegezondheidszorg(data) {
+//   return data.filter(
+//     function(data) {
+//       var filterGeestelijkegezondheidszorg = geestelijkegezondheidszorgLowerCase == ja || geestelijkegezondheidszorgLowerCase == yes
+//       return filterGeestelijkegezondheidszorg
+//     }
+//   );
+// }
+
+// function filterGehandicaptenzorg(data) {
+//   return data.filter(
+//     function(data) {
+//       var filterGehandicaptenzorg = gehandicaptenzorgLowerCase == ja || gehandicaptenzorgLowerCase == yes
+//       return filterGehandicaptenzorg
+//     }
+//   );
+// }
+
+// function filterThuiszorg(data) {
+//   return data.filter(
+//     function(data) {
+//       var filterThuiszorg = thuiszorgLowerCase == ja || thuiszorgLowerCase == yes
+//       return filterThuiszorg
+//     }
+//   );
+// }
+
+// filterThuis.addEventListener('click', filterThuiszorg)
+// filterHandicap.addEventListener('click', filterHandicap)
+// filterGeestelijk.addEventListener('click', filterGeestelijk)
