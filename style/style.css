@@ -318,7 +318,7 @@ input {
   display: inline-block;
   margin: -4px 0 auto .6em;
   word-break: break-word;
-  max-width: 14em;
+  max-width: 12em;
 }
 
 #results h3 {
@@ -491,15 +491,16 @@ img.alert {
 .tooltip {
   opacity: 0;
   position: absolute;
-  margin-left: 1em;
+  margin-left: -13em;
+  width: 12em;
 }
 
 .difficult:hover+.tooltip {
   display: inline-flex;
   opacity: 1;
   margin-top: -6em;
-  margin-left: -10em;
-  width: 15em;
+  margin-left: -13em;
+  width: 12em;
   background-color: #ffffff;
   padding: .5em;
 }
@@ -508,8 +509,18 @@ img.alert {
   display: inline-flex;
   opacity: 1;
   margin-top: -6em;
-  margin-left: -10em;
-  width: 15em;
+  margin-left: -23em;
+  width: 12em;
+  background-color: #ffffff;
+  padding: .5em;
+}
+
+.difficult:focus+.tooltip {
+  display: inline-flex;
+  opacity: 1;
+  margin-top: -6em;
+  margin-left: -23em;
+  width: 12em;
   background-color: #ffffff;
   padding: .5em;
 }
@@ -517,15 +528,16 @@ img.alert {
 .tooltip2 {
   opacity: 0;
   position: absolute;
-  margin-left: 1em;
+  margin-left: -23em;
+  width: 12em;
 }
 
 .difficult:hover+.tooltip2 {
   display: inline-flex;
   opacity: 1;
-  margin-top: -9em;
-  margin-left: -10em;
-  width: 15em;
+  margin-top: -10em;
+  margin-left: -8em;
+  width: 12em;
   background-color: #ffffff;
   padding: .5em;
 }
@@ -533,9 +545,19 @@ img.alert {
 .difficult:active+.tooltip2 {
   display: inline-flex;
   opacity: 1;
-  margin-top: -9em;
-  margin-left: -10em;
-  width: 15em;
+  margin-top: -10em;
+  margin-left: -8em;
+  width: 12em;
+  background-color: #ffffff;
+  padding: .5em;
+}
+
+.difficult:focus+.tooltip2 {
+  display: inline-flex;
+  opacity: 1;
+  margin-top: -10em;
+  margin-left: -8em;
+  width: 12em;
   background-color: #ffffff;
   padding: .5em;
 }
