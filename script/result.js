@@ -1,16 +1,10 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let searchword = urlParams.get('search');
-let section = d3.select('#results')
-let searchButton = document.getElementById("searchButton")
-let name = document.getElementById("name")
-console.log(searchword);
-
-
-
+const searchword = urlParams.get('search');
+const section = d3.select('#results')
+const searchButton = document.getElementById("searchButton")
+const name = document.getElementById("name")
 const inputText = searchword
-
-
 
 // Fetch gives access to the json file
 // .then wait till data is loaded, otherwise crash
@@ -23,16 +17,16 @@ fetch('data.json')
   })
 
 function getData(data) {
-  var foundData = searchData(inputText);
+  const foundData = searchData(inputText);
   // filter the data by input search field
   function searchData(inputText) {
     // Get de style differences out of the data
     return data.filter(
       function(data) {
-        var inputLowerCase = inputText.toLowerCase()
-        var placeLowerCase = data.plaats.toLowerCase()
-        var companyLowerCase = data.bedrijfsnaam.toLowerCase()
-        var searchInDataFields = inputLowerCase == placeLowerCase || inputLowerCase == companyLowerCase
+        const inputLowerCase = inputText.toLowerCase()
+        const placeLowerCase = data.plaats.toLowerCase()
+        const companyLowerCase = data.bedrijfsnaam.toLowerCase()
+        const searchInDataFields = inputLowerCase == placeLowerCase || inputLowerCase == companyLowerCase
         return searchInDataFields
       }
     );
@@ -40,8 +34,8 @@ function getData(data) {
 
   //Filter on double concerncodes and latest years (2017/2018)
   var i = 0;
-  var checkdoubleconcerncode = [];
-  var dataFiltered = [];
+  const checkdoubleconcerncode = [];
+  const dataFiltered = [];
   for (i = 0; i < foundData.length; i++) {
     if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar == 2018) {
       checkdoubleconcerncode.push(foundData[i].concerncode)
@@ -53,28 +47,25 @@ function getData(data) {
     // }
   }
 
-
-
-
   // d3 elements
   // selectAll (li), because li dont excist, it can  be updatet. 
-  var section_h1_1 = section.select('#resultsText1')
-  var section_h1_2 = section.select('#resultsText2')
-  var section_h1_3 = section.select('#resultsText3')
-  var numberOfResults = dataFiltered.length
-  var article = section.selectAll('li').data(dataFiltered).enter().append('article').append('a');
-  var allArticles = section.selectAll('article').data(dataFiltered)
-  var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(dataFiltered)
-  var article_a = section.selectAll('a').data(dataFiltered)
-  var article_h2 = d3.selectAll('a > h2').data(dataFiltered)
-  var article_h3 = d3.selectAll('a > h3').data(dataFiltered)
-  var article_p = d3.selectAll('a > p').data(dataFiltered)
-  var article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
-  var article_pLoon = d3.selectAll('#textloon').data(dataFiltered)
-  var article_pFte = d3.selectAll('#textfte').data(dataFiltered)
-  var article_imgAlertWinst = d3.selectAll('#alertwinst').data(dataFiltered)
-  var article_imgAlertLoon = d3.selectAll('#alertloon').data(dataFiltered)
-  var article_imgAlertFte = d3.selectAll('#alertfte').data(dataFiltered)
+  const section_h1_1 = section.select('#resultsText1')
+  const section_h1_2 = section.select('#resultsText2')
+  const section_h1_3 = section.select('#resultsText3')
+  const numberOfResults = dataFiltered.length
+  const article = section.selectAll('li').data(dataFiltered).enter().append('article').append('a');
+  const allArticles = section.selectAll('article').data(dataFiltered)
+  const article_imgKindOfCare = d3.selectAll('.kindOfCare').data(dataFiltered)
+  const article_a = section.selectAll('a').data(dataFiltered)
+  const article_h2 = d3.selectAll('a > h2').data(dataFiltered)
+  const article_h3 = d3.selectAll('a > h3').data(dataFiltered)
+  const article_p = d3.selectAll('a > p').data(dataFiltered)
+  const article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
+  const article_pLoon = d3.selectAll('#textloon').data(dataFiltered)
+  const article_pFte = d3.selectAll('#textfte').data(dataFiltered)
+  const article_imgAlertWinst = d3.selectAll('#alertwinst').data(dataFiltered)
+  const article_imgAlertLoon = d3.selectAll('#alertloon').data(dataFiltered)
+  const article_imgAlertFte = d3.selectAll('#alertfte').data(dataFiltered)
 
   // Update elements
   section_h1_1
@@ -83,7 +74,6 @@ function getData(data) {
     .text(" ' " + inputText + "' ");
   section_h1_3
     .text(" (" + numberOfResults + ")");
-
   article_imgKindOfCare
     .attr("src", function(dataFiltered) {
       if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
@@ -115,7 +105,6 @@ function getData(data) {
     .text(function(dataFiltered) {
       return "Winstpercentage: " + dataFiltered.perc_winst + "%";
     });
-
   article_pWinst
     .text(function(dataFiltered) {
       if (dataFiltered.perc_winst == 'NA' || dataFiltered.perc_winst == 'Inf') {
@@ -140,8 +129,6 @@ function getData(data) {
         return "Percentage loon: " + Math.floor(dataFiltered.omzet_fte) + "%";
       }
     });
-
-
   article_imgAlertWinst
     .attr("src", function(dataFiltered) {
       if (dataFiltered.perc_winst > 10) {
@@ -172,8 +159,7 @@ function getData(data) {
         return "images/icons/missing_violet.png";
       }
     })
-
-  // Exit  elements
+    // Exit  elements
   allArticles
     .exit()
     .remove();
@@ -184,14 +170,10 @@ function getData(data) {
     .attr('class', 'kindOfCare')
     .attr("src", function(dataFiltered) {
       if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
-
-
         return "images/icons/home_white.png";
       } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
-
         return "images/icons/handicap_white.png";
       } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
-
         return "images/icons/mental_white.png";
       }
     });
@@ -289,7 +271,6 @@ function getData(data) {
       if (dataFiltered.omzet_fte == 'NA' || dataFiltered.omzet_fte == 'Inf') {
         return 'Omzet per FTE: ontbreekt'
       } else {
-
         return "Omzet per FTE: €" + Math.floor(dataFiltered.omzet_fte);
       }
     });

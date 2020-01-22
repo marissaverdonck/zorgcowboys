@@ -1,17 +1,16 @@
-let section = d3.select('#results')
-let searchButton = document.getElementById("searchButton")
-let name = document.getElementById("name")
-let filterThuis = document.getElementById("filterThuis")
-let filterHandicap = document.getElementById("filterHandicap")
-let filterGeestelijk = document.getElementById("filterGeestelijk")
+const section = d3.select('#results')
+const searchButton = document.getElementById("searchButton")
+const name = document.getElementById("name")
+const filterThuis = document.getElementById("filterThuis")
+const filterHandicap = document.getElementById("filterHandicap")
+const filterGeestelijk = document.getElementById("filterGeestelijk")
 
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
   const oldInputText = document.getElementById("inputText").value;
-  console.log(oldInputText);
   // Remove whitespace at end of text
-  var a = oldInputText.length - 1;
-  var lastCharacter = oldInputText.charAt(a)
+  const a = oldInputText.length - 1;
+  const lastCharacter = oldInputText.charAt(a)
   if (lastCharacter == " ") {
     var inputText = oldInputText.slice(0, a)
   } else {
@@ -34,36 +33,35 @@ fetch('data.json')
 function getData(data) {
   //Filter on double concerncodes and latest years (2017/2018)
   var i = 0;
-  var checkdoubleconcerncode = [];
-  var dataFiltered = [];
+  const checkdoubleconcerncode = [];
+  const dataFiltered = [];
   for (i = 0; i < data.length; i++) {
     if (checkdoubleconcerncode.indexOf(data[i].concerncode) == -1 && data[i].jaar == 2018 && data[i].perc_winst > 70) {
       checkdoubleconcerncode.push(data[i].concerncode)
       dataFiltered.push(data[i])
     }
   }
-  console.log(dataFiltered)
 
 
   // d3 elements
   // selectAll (li), because li dont excist, it can  be updatet. 
-  var section_h1_1 = section.select('#resultsText1')
-  var section_h1_2 = section.select('#resultsText2')
-  var section_h1_3 = section.select('#resultsText3')
-  var numberOfResults = dataFiltered.length
-  var article = section.selectAll('li').data(dataFiltered).enter().append('article').append('a');
-  var allArticles = section.selectAll('article').data(dataFiltered)
-  var article_imgKindOfCare = d3.selectAll('.kindOfCare').data(dataFiltered)
-  var article_a = section.selectAll('a').data(dataFiltered)
-  var article_h2 = d3.selectAll('a > h2').data(dataFiltered)
-  var article_h3 = d3.selectAll('a > h3').data(dataFiltered)
-  var article_p = d3.selectAll('a > p').data(dataFiltered)
-  var article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
-  var article_pLoon = d3.selectAll('#textloon').data(dataFiltered)
-  var article_pFte = d3.selectAll('#textfte').data(dataFiltered)
-  var article_imgAlertWinst = d3.selectAll('#alertwinst').data(dataFiltered)
-  var article_imgAlertLoon = d3.selectAll('#alertloon').data(dataFiltered)
-  var article_imgAlertFte = d3.selectAll('#alertfte').data(dataFiltered)
+  const section_h1_1 = section.select('#resultsText1')
+  const section_h1_2 = section.select('#resultsText2')
+  const section_h1_3 = section.select('#resultsText3')
+  const numberOfResults = dataFiltered.length
+  const article = section.selectAll('li').data(dataFiltered).enter().append('article').append('a');
+  const allArticles = section.selectAll('article').data(dataFiltered)
+  const article_imgKindOfCare = d3.selectAll('.kindOfCare').data(dataFiltered)
+  const article_a = section.selectAll('a').data(dataFiltered)
+  const article_h2 = d3.selectAll('a > h2').data(dataFiltered)
+  const article_h3 = d3.selectAll('a > h3').data(dataFiltered)
+  const article_p = d3.selectAll('a > p').data(dataFiltered)
+  const article_pWinst = d3.selectAll('#textwinst').data(dataFiltered)
+  const article_pLoon = d3.selectAll('#textloon').data(dataFiltered)
+  const article_pFte = d3.selectAll('#textfte').data(dataFiltered)
+  const article_imgAlertWinst = d3.selectAll('#alertwinst').data(dataFiltered)
+  const article_imgAlertLoon = d3.selectAll('#alertloon').data(dataFiltered)
+  const article_imgAlertFte = d3.selectAll('#alertfte').data(dataFiltered)
 
   // Update elements
   section_h1_1
@@ -129,8 +127,6 @@ function getData(data) {
         return "Percentage loon: " + Math.floor(dataFiltered.omzet_fte) + "%";
       }
     });
-
-
   article_imgAlertWinst
     .attr("src", function(dataFiltered) {
       if (dataFiltered.perc_winst > 10) {
@@ -173,14 +169,10 @@ function getData(data) {
     .attr('class', 'kindOfCare')
     .attr("src", function(dataFiltered) {
       if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
-
-
         return "images/icons/home_white.png";
       } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
-
         return "images/icons/handicap_white.png";
       } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
-
         return "images/icons/mental_white.png";
       }
     });
@@ -308,7 +300,7 @@ function getData(data) {
 // function filterGeestelijkegezondheidszorg(data) {
 //   return data.filter(
 //     function(data) {
-//       var filterGeestelijkegezondheidszorg = geestelijkegezondheidszorgLowerCase == ja || geestelijkegezondheidszorgLowerCase == yes
+//      const filterGeestelijkegezondheidszorg = geestelijkegezondheidszorgLowerCase == ja || geestelijkegezondheidszorgLowerCase == yes
 //       return filterGeestelijkegezondheidszorg
 //     }
 //   );
@@ -317,7 +309,7 @@ function getData(data) {
 // function filterGehandicaptenzorg(data) {
 //   return data.filter(
 //     function(data) {
-//       var filterGehandicaptenzorg = gehandicaptenzorgLowerCase == ja || gehandicaptenzorgLowerCase == yes
+//       const filterGehandicaptenzorg = gehandicaptenzorgLowerCase == ja || gehandicaptenzorgLowerCase == yes
 //       return filterGehandicaptenzorg
 //     }
 //   );
@@ -326,7 +318,7 @@ function getData(data) {
 // function filterThuiszorg(data) {
 //   return data.filter(
 //     function(data) {
-//       var filterThuiszorg = thuiszorgLowerCase == ja || thuiszorgLowerCase == yes
+//      const filterThuiszorg = thuiszorgLowerCase == ja || thuiszorgLowerCase == yes
 //       return filterThuiszorg
 //     }
 //   );

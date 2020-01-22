@@ -123,7 +123,6 @@ function getData(data) {
     }
   }
 
-
   // change strings to numbers
   foundData.forEach(foundData => {
     foundData.perc_winst = +foundData.perc_winst;
@@ -147,18 +146,12 @@ function getData(data) {
   } else {
     domainValueYMin = 0
   }
+  // FTE
   const maxValueYFte = fteData.omzet_fte
-  console.log(maxValueYFte)
-
   let domainValueYFte;
   if (maxValueYFte < 130000) { domainValueYFte = 130000 } else {
     domainValueYFte = maxValueYFte
   }
-
-
-
-
-
 
   // Set the range of the chart
   // Winstpercentage
@@ -185,10 +178,6 @@ function getData(data) {
   const xScaleFte = d3.scaleBand()
     .domain(0, 1)
     .range([0, innerWidthFte])
-
-
-
-
 
   // Winstpercentage
   const g = winstSVG.append('g')
@@ -326,26 +315,15 @@ function getData(data) {
     .attr('y1', 30)
     .attr('y2', -68)
 
-
   xAxisGLoon
     .select('#loonnumbertxt40')
     .attr('opacity', 1)
     .attr('y', 35)
     .text("40%")
 
-  //   xAxisGLoon
-  //     .selectAll('.domain')
-  //     .attr('stroke', '#d8cedb')
-  //     .remove()
-
-
-
   // Omzet FTE
   const gFte = fteSVG.append('g')
     .attr('transform', `translate(${marginFte.left},${marginFte.top})`);
-
-  console.log(fteDataArray)
-  console.log(fteData)
 
   gFte.selectAll('rect').data(fteDataArray)
     .enter().append('rect')
@@ -354,8 +332,6 @@ function getData(data) {
     .attr('height', d => innerHeightFte - yScaleFte(yValueFte(d)))
     .attr("fill", "#1beaae")
     .attr('transform', d => `translate(0,${yScaleFte(yValueFte(d))})`);
-
-
 
   const yAxisGFte = gFte.append('g')
     .call(d3.axisRight(yScaleFte))
@@ -372,7 +348,6 @@ function getData(data) {
     .attr("id", d => "numbertxt" + d)
     .attr('opacity', 0)
 
-
   yAxisGFte
     .select('#number120000')
     .attr('stroke', '#f65645')
@@ -385,7 +360,6 @@ function getData(data) {
     .attr('opacity', 1)
     .text("€125.000")
 
-
   yAxisGFte
     .selectAll('.domain')
     .remove()
@@ -395,7 +369,6 @@ function getData(data) {
     num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return num_parts.join(".");
   }
-
 
   if (isNaN(fteData.omzet_fte) == true) {
     yAxisGFte
@@ -407,7 +380,6 @@ function getData(data) {
       .attr('x', -innerWidthFte + 16)
       .attr('id', "titelYFte")
       .attr('fill', "#6b38e8")
-    console.log("test")
   } else {
     yAxisGFte
       .append('text')
@@ -419,14 +391,8 @@ function getData(data) {
       .attr('id', "titelYFte")
       .attr('fill', "#6b38e8")
       .text('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-');
-
   }
-
-
-
-
-  console.log(winstData.perc_winst + '%')
-    //Summary fill in
+  //Summary fill in
   samenvattingWinst.innerHTML = (winstData.perc_winst + '%');
   samenvattingLoon.innerHTML = (Math.floor(loonData.perc_loon) + '%');
   samenvattingFte.innerHTML = ('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-');
