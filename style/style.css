@@ -420,6 +420,52 @@ img.alert {
   text-decoration: none
 }
 
+.difficult {
+  display: inline;
+  font-family: "Zilla Slab", Georgia, serif;
+  color: #1d2939;
+  font-size: 18px;
+  text-decoration: underline;
+  position: relative;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  ;
+}
+
+.difficult:hover+.tooltip {
+  display: inline-flex;
+  opacity: 1;
+  margin-top: -6em;
+  margin-left: -10em;
+  width: 15em;
+  background-color: #ffffff;
+  padding: .5em;
+}
+
+.tooltip2 {
+  opacity: 0;
+  position: absolute;
+  ;
+}
+
+.difficult:hover+.tooltip2 {
+  display: inline-flex;
+  opacity: 1;
+  margin-top: -9em;
+  margin-left: -10em;
+  width: 15em;
+  background-color: #ffffff;
+  padding: .5em;
+}
+
+.difficult:hover {
+  background-color: #6039c1;
+  color: #ffffff;
+}
+
 #winstPercentage {
   margin: 2em 0em;
   padding: 1em 1em;
