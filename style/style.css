@@ -836,4 +836,21 @@ img.alert {
     margin-left: auto;
     margin-right: auto;
   }
+  #results {
+    max-width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6em;
+  }
+  #intro1 {
+    max-width: 22em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #intro1 h1 {
+    font-size: 2.5em;
+  }
+  #titel1 {
+    padding-top: 2em;
+  }
 }
