@@ -77,11 +77,11 @@ function getData(data) {
   article_imgKindOfCare
     .attr("src", function(dataFiltered) {
       if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
-        return "images/icons/home_white.png";
+        return "images/icons/home_white.svg";
       } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
-        return "images/icons/handicap_white.png";
+        return "images/icons/handicap_white.svg";
       } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
-        return "images/icons/mental_white.png";
+        return "images/icons/mental_white.svg";
       }
     });
   article_a
@@ -132,31 +132,31 @@ function getData(data) {
   article_imgAlertWinst
     .attr("src", function(dataFiltered) {
       if (dataFiltered.perc_winst > 10) {
-        return "images/icons/alert_solid.png";
+        return "images/icons/alert_solid.svg";
       } else if (dataFiltered.perc_winst < 10) {
-        return "images/icons/check_solid.png";
+        return "images/icons/check_solid.svg";
       } else {
-        return "images/icons/missing_violet.png";
+        return "images/icons/missing_violet.svg";
       }
     });
   article_imgAlertLoon
     .attr("src", function(dataFiltered) {
       if (dataFiltered.perc_loon < 40) {
-        return "images/icons/alert_solid.png";
+        return "images/icons/alert_solid.svg";
       } else if (dataFiltered.perc_loon > 40) {
-        return "images/icons/check_solid.png";
+        return "images/icons/check_solid.svg";
       } else {
-        return "images/icons/missing_violet.png";
+        return "images/icons/missing_violet.svg";
       }
     });
   article_imgAlertFte
     .attr("src", function(dataFiltered) {
       if (dataFiltered.omzet_fte > 125000) {
-        return "images/icons/alert_solid.png";
+        return "images/icons/alert_solid.svg";
       } else if (dataFiltered.omzet_fte < 125000) {
-        return "images/icons/check_solid.png";
+        return "images/icons/check_solid.svg";
       } else {
-        return "images/icons/missing_violet.png";
+        return "images/icons/missing_violet.svg";
       }
     })
     // Exit  elements
@@ -170,11 +170,11 @@ function getData(data) {
     .attr('class', 'kindOfCare')
     .attr("src", function(dataFiltered) {
       if (dataFiltered.thuiszorg == 'yes' || dataFiltered.thuiszorg == 'ja') {
-        return "images/icons/home_white.png";
+        return "images/icons/home_white.svg";
       } else if (dataFiltered.gehandicaptenzorg == 'yes' || dataFiltered.gehandicaptenzorg == 'ja') {
-        return "images/icons/handicap_white.png";
+        return "images/icons/handicap_white.svg";
       } else if (dataFiltered.geestelijkegezondheidszorg == 'yes' || dataFiltered.geestelijkegezondheidszorg == 'ja') {
-        return "images/icons/mental_white.png";
+        return "images/icons/mental_white.svg";
       }
     });
   article
@@ -198,7 +198,7 @@ function getData(data) {
   article
     .append('img')
     .attr('class', 'winst')
-    .attr("src", "images/icons/money_purple.png");
+    .attr("src", "images/icons/money_purple_big.png");
   article
     .append('p')
     .attr('class', 'winst')
@@ -217,11 +217,11 @@ function getData(data) {
     .attr('class', 'alert')
     .attr("src", function(dataFiltered) {
       if (dataFiltered.perc_winst > 10) {
-        return "images/icons/alert_solid.png";
+        return "images/icons/alert_solid.svg";
       } else if (dataFiltered.perc_winst < 10) {
-        return "images/icons/check_solid.png";
+        return "images/icons/check_solid.svg";
       } else {
-        return "images/icons/missing_violet.png";
+        return "images/icons/missing_violet.svg";
       }
     })
     //Loon
@@ -230,7 +230,7 @@ function getData(data) {
   article
     .append('img')
     .attr('class', 'loon')
-    .attr("src", "images/icons/wallet_purple.png");
+    .attr("src", "images/icons/wallet_purple_big.png");
   article
     .append('p')
     .attr('class', 'loon')
@@ -249,11 +249,11 @@ function getData(data) {
     .attr('class', 'alert')
     .attr("src", function(dataFiltered) {
       if (dataFiltered.perc_loon < 40) {
-        return "images/icons/alert_solid.png";
+        return "images/icons/alert_solid.svg";
       } else if (dataFiltered.perc_loon > 40) {
-        return "images/icons/check_solid.png";
+        return "images/icons/check_solid.svg";
       } else {
-        return "images/icons/missing_violet.png";
+        return "images/icons/missing_violet.svg";
       }
     });
   article
@@ -262,7 +262,7 @@ function getData(data) {
   article
     .append('img')
     .attr('class', 'fte')
-    .attr("src", "images/icons/user_purple.png");
+    .attr("src", "images/icons/person_purple_big.png");
   article
     .append('p')
     .attr('class', 'fte')
@@ -281,11 +281,11 @@ function getData(data) {
     .attr('id', 'alertfte')
     .attr("src", function(dataFiltered) {
       if (dataFiltered.omzet_fte > 125000) {
-        return "images/icons/alert_solid.png";
+        return "images/icons/alert_solid.svg";
       } else if (dataFiltered.omzet_fte < 125000) {
-        return "images/icons/check_solid.png";
+        return "images/icons/check_solid.svg";
       } else {
-        return "images/icons/missing_violet.png";
+        return "images/icons/missing_violet.svg";
       }
     })
 }

@@ -1,7 +1,7 @@
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+let urlParams = new URLSearchParams(queryString);
 const concerncode = urlParams.get('concerncode');
-const searchword = urlParams.get('search');
+let searchword = urlParams.get('search');
 const winstSVG = d3.select('#winstSVG');
 const loonSVG = d3.select('#loonSVG');
 const fteSVG = d3.select('#fteSVG');
@@ -30,7 +30,13 @@ const innerHeightFte = heightFte - marginFte.top - marginFte.bottom;
 
 h2_name.innerHTML = name
 h3_place.innerHTML = place
-backbutton.setAttribute("href", "result.html?search=" + searchword)
+
+// Set backbutton
+if (searchword === null) {
+  backbutton.setAttribute("href", "search.html")
+} else {
+  backbutton.setAttribute("href", "result.html?search=" + searchword)
+}
 
 fetch('data.json')
   .then((response) => {
