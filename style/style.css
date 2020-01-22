@@ -530,12 +530,14 @@ img.alert {
   opacity: 0;
   position: absolute;
   width: 12em;
+  margin-top: 02em;
+  margin-left: -8em;
 }
 
 .difficult:hover+.tooltip2 {
   display: inline-flex;
   opacity: 1;
-  margin-top: -10em;
+  margin-top: 02em;
   margin-left: -8em;
   width: 12em;
   background-color: #ffffff;
@@ -545,7 +547,7 @@ img.alert {
 .difficult:active+.tooltip2 {
   display: inline-flex;
   opacity: 1;
-  margin-top: -10em;
+  margin-top: 02em;
   margin-left: -8em;
   width: 12em;
   background-color: #ffffff;
@@ -555,7 +557,7 @@ img.alert {
 .difficult:focus+.tooltip2 {
   display: inline-flex;
   opacity: 1;
-  margin-top: -10em;
+  margin-top: 02em;
   margin-left: -8em;
   width: 12em;
   background-color: #ffffff;
