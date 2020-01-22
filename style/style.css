@@ -491,8 +491,9 @@ img.alert {
 .tooltip {
   opacity: 0;
   position: absolute;
-  margin-left: -13em;
   width: 12em;
+  margin-top: -6em;
+  margin-left: -23em;
 }
 
 .difficult:hover+.tooltip {
@@ -509,7 +510,7 @@ img.alert {
   display: inline-flex;
   opacity: 1;
   margin-top: -6em;
-  margin-left: -23em;
+  margin-left: -13em;
   width: 12em;
   background-color: #ffffff;
   padding: .5em;
@@ -519,7 +520,7 @@ img.alert {
   display: inline-flex;
   opacity: 1;
   margin-top: -6em;
-  margin-left: -23em;
+  margin-left: -13em;
   width: 12em;
   background-color: #ffffff;
   padding: .5em;
@@ -528,7 +529,6 @@ img.alert {
 .tooltip2 {
   opacity: 0;
   position: absolute;
-  margin-left: -23em;
   width: 12em;
 }
 
@@ -952,7 +952,7 @@ img.alert {
     margin: 6em auto 0 auto;
   }
   .popup {
-    width: 30%;
+    width: 20em;
   }
   #results {
     margin: 0em auto 0 auto;
