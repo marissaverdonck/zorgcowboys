@@ -435,9 +435,10 @@ img.alert {
 }
 
 .important {
-  font-weight: bold !important;
+  /* font-weight: 500 !important; */
   display: inline;
-  color: #000000;
+  font-style: italic;
+  /* color: #000000; */
   /* color: #f65645; */
 }
 
