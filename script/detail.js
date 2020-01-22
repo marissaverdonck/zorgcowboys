@@ -117,17 +117,20 @@ function getData(data) {
     if (foundData[i].jaar == maxYear && isNaN(foundData[i].omzet_fte) == false) {
       fteData.jaar = foundData[i].jaar;
       fteData.omzet_fte = foundData[i].omzet_fte;
-
+      console.log("Nan")
     } else if (foundData[i].jaar == (maxYear - 1) && isNaN(foundData[i].omzet_fte) == false) {
       fteData.jaar = foundData[i].jaar;
       fteData.omzet_fte = foundData[i].omzet_fte;
-
+      console.log("Nan")
     } else if (foundData[i].jaar == (maxYear - 2) && isNaN(foundData[i].omzet_fte) == false) {
       fteData.jaar = foundData[i].jaar;
       fteData.omzet_fte = foundData[i].omzet_fte;
-
-    } else {}
+      console.log("Nan")
+    } else {
+      fteData.omzet_fte = "Gegevens onbekend"
+    }
   }
+
 
   // change strings to numbers
   foundData.forEach(foundData => {
@@ -401,15 +404,31 @@ function getData(data) {
     return num_parts.join(".");
   }
 
-  yAxisGFte
-    .append('text')
-    .attr('y', innerHeightFte - (innerHeightFte / domainValueYFte * fteData.omzet_fte) + 30)
-    // .attr('y', 0)
-    .attr('x', -innerWidthFte + 60)
-    .attr('id', "titelYFte")
-    .attr('fill', "#6b38e8")
-    .text('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-');
 
+  if (isNaN(fteData.omzet_fte) == true) {
+    yAxisGFte
+      .append('text')
+      .text(
+        'Gegevens onbekend')
+      .attr('y', innerHeightFte - (innerHeightFte / domainValueYFte * fteData.omzet_fte) + 30)
+      // .attr('y', 0)
+      .attr('x', -innerWidthFte + 16)
+      .attr('id', "titelYFte")
+      .attr('fill', "#6b38e8")
+    console.log("test")
+  } else {
+    yAxisGFte
+      .append('text')
+      .text(
+        '€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-')
+      .attr('y', innerHeightFte - (innerHeightFte / domainValueYFte * fteData.omzet_fte) + 30)
+      // .attr('y', 0)
+      .attr('x', -innerWidthFte + 60)
+      .attr('id', "titelYFte")
+      .attr('fill', "#6b38e8")
+      .text('€' + thousands_separators(Math.floor(fteData.omzet_fte)) + ',-');
+
+  }
 
 
 
