@@ -23,6 +23,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
+  /* background-color: #ffffff; */
 }
 
 h1 {
@@ -679,43 +680,48 @@ img.alert {
 
 #intro1 {
   background-color: #ffffff;
-  padding: 7em 2em 0em 2em;
+  /* padding: 7em 2em 0em 2em; */
   width: 100%;
   height: 100%;
   position: relative;
 }
 
 #titel1 {
-  font-size: 2.8em;
+  padding: 1em .6em 0em .6em;
+  font-size: 2.5em;
   color: #1beaae;
 }
 
 #titel2 {
-  font-size: 2.8em;
+  padding: 0em .6em 0em .6em;
+  font-size: 2.5em;
   color: #6b38e8;
 }
 
 #intro1 p {
   margin: 1.5em 0;
+  padding: 0em 1.5em 0em 1.5em;
 }
 
 #intro1 ul li img {
   width: 28px;
   height: 28px;
   display: inline-block;
+  padding: 0em 0em 0em 1.5em;
 }
 
 #intro1 ul li p {
   color: #6b38e8;
   display: inline-block;
   margin: 0 0 0 1em;
+  padding: 0
 }
 
 #intro1 ul {
   text-decoration: none;
   list-style: none;
   padding: 0;
-  margin: 3em 0
+  margin: 2em 0;
 }
 
 #intro1 ul li {
@@ -725,8 +731,9 @@ img.alert {
 
 #under {
   position: absolute;
-  bottom: 3em;
-  width: 85%;
+  bottom: 2em;
+  width: 86%;
+  left: 7%;
 }
 
 #intro1 a {
@@ -744,7 +751,7 @@ img.alert {
   border-radius: 5px;
   width: 100%;
   height: 3.3em;
-  margin: 2em auto 0 auto;
+  margin: 1em auto 0 auto;
   font-family: TensoBold;
   font-size: 18px;
   color: #ffffff;
@@ -772,6 +779,7 @@ img.alert {
   text-align: center;
   margin: 0 auto 2em auto;
   display: block;
+  padding-top: 3em
 }
 
 
