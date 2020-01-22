@@ -46,6 +46,7 @@ npm install
 * Pointer - Voor deze kans, feedback en de data
 * Maaike van Cruchten - Voor de feedback
 * Violet Jim en Rick Bos - Voor de fijne samenwerking en het visuele design
+* Curran Kelleher - Making a bar chart https://vizhub.com/curran/326730c80fc54969ae501fb58c8cb94b
 
 ## License
 [MIT License](https://github.com/marissaverdonck/zorgcowboys/blob/master/license)
