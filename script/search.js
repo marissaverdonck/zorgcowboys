@@ -138,14 +138,20 @@ function getData(data) {
   //Filter on double concerncodes and latest years (2017/2018)
   var i = 0;
   const checkdoubleconcerncode = [];
-  const dataFiltered = [];
+  const dataFiltered0 = [];
   for (i = 0; i < data.length; i++) {
-    if (checkdoubleconcerncode.indexOf(data[i].concerncode) == -1 && data[i].jaar == 2018 && data[i].perc_winst > 70) {
+    if (checkdoubleconcerncode.indexOf(data[i].concerncode) == -1 && data[i].jaar == 2018 && data[i].perc_winst > 10) {
       checkdoubleconcerncode.push(data[i].concerncode)
-      dataFiltered.push(data[i])
+      dataFiltered0.push(data[i])
     }
   }
 
+
+  console.log(dataFiltered0)
+
+
+  dataFiltered = dataFiltered0.slice().sort((a, b) => d3.descending(a.perc_winst, b.perc_winst))
+  console.log(dataFiltered)
 
   // d3 elements
   // selectAll (li), because li dont excist, it can  be updatet. 
@@ -392,9 +398,8 @@ function getData(data) {
         return "images/icons/missing_violet.svg";
       }
     })
-  console.log(filteron.length)
-  return dataFiltered
 
+  return dataFiltered
 }
 
 function thuisOn() { filterThuis.classList.add('filteron') }
