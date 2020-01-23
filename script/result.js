@@ -35,17 +35,21 @@ function getData(data) {
   //Filter on double concerncodes and latest years (2017/2018)
   var i = 0;
   const checkdoubleconcerncode = [];
-  const dataFiltered = [];
+  const dataFiltered0 = [];
   for (i = 0; i < foundData.length; i++) {
     if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar == 2018) {
       checkdoubleconcerncode.push(foundData[i].concerncode)
-      dataFiltered.push(foundData[i])
+      dataFiltered0.push(foundData[i])
     }
     // else if (checkdoubleconcerncode.indexOf(foundData[i].concerncode) == -1 && foundData[i].jaar > 2017) {
     //   checkdoubleconcerncode.push(foundData[i].concerncode)
     //   dataFiltered.push(foundData[i])
     // }
   }
+
+
+  dataFiltered = dataFiltered0.slice().sort((a, b) => d3.descending(b.bedrijfsnaam, a.bedrijfsnaam))
+  console.log(dataFiltered)
 
   // d3 elements
   // selectAll (li), because li dont excist, it can  be updatet. 

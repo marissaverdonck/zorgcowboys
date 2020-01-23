@@ -132,7 +132,6 @@ function nofilter() {
     })
 }
 
-
 function getData(data) {
 
   //Filter on double concerncodes and latest years (2017/2018)
@@ -145,11 +144,6 @@ function getData(data) {
       dataFiltered0.push(data[i])
     }
   }
-
-
-  console.log(dataFiltered0)
-
-
   dataFiltered = dataFiltered0.slice().sort((a, b) => d3.descending(a.perc_winst, b.perc_winst))
   console.log(dataFiltered)
 
