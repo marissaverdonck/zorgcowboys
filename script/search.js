@@ -4,6 +4,8 @@ const name = document.getElementById("name")
 const filterThuis = document.getElementById("filterThuis")
 const filterHandicap = document.getElementById("filterHandicap")
 const filterGeestelijk = document.getElementById("filterGeestelijk")
+const filteron = document.getElementsByClassName("filteron")
+
 
 // After clicking the search button, get the value from the field
 function getInputSearchField() {
@@ -30,7 +32,109 @@ fetch('data.json')
     getData(myJson)
   })
 
+
+
+function filterGeestelijkegezondheidszorg() {
+  fetch('data.json')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      filterGeestelijk(myJson)
+    })
+
+  function filterGeestelijk(data) {
+    var dataGeestelijk = data.filter(
+      function(data) {
+        const geestelijkegezondheidszorgLowerCase = data.geestelijkegezondheidszorg.toLowerCase()
+        const filterGeestelijkegezondheidszorg = geestelijkegezondheidszorgLowerCase == "ja" || geestelijkegezondheidszorgLowerCase == "yes"
+        return filterGeestelijkegezondheidszorg
+      }
+    );
+    getData(dataGeestelijk)
+  }
+}
+
+
+function filterHandicapzorg() {
+  fetch('data.json')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      filterHandicap(myJson)
+    })
+
+  function filterHandicap(data) {
+    var dataHandicap = data.filter(
+      function(data) {
+        const handicapzorgLowerCase = data.gehandicaptenzorg.toLowerCase()
+        const filterHandicapzorg = handicapzorgLowerCase == "ja" || handicapzorgLowerCase == "yes"
+        return filterHandicapzorg
+      }
+    );
+    getData(dataHandicap)
+  }
+}
+
+function filterThuiszorg() {
+  fetch('data.json')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      filterThuis(myJson)
+    })
+
+  function filterThuis(data) {
+    var dataThuis = data.filter(
+      function(data) {
+        const thuiszorgLowerCase = data.thuiszorg.toLowerCase()
+        const filterThuiszorg = thuiszorgLowerCase == "ja" || thuiszorgLowerCase == "yes"
+        return filterThuiszorg
+      }
+    );
+    getData(dataThuis)
+  }
+}
+
+
+function filterGeestelijkegezondheidszorg() {
+  fetch('data.json')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      filterGeestelijk(myJson)
+      console.log(myJson)
+    })
+
+  function filterGeestelijk(data) {
+    var dataGeestelijk = data.filter(
+      function(data) {
+        const geestelijkegezondheidszorgLowerCase = data.geestelijkegezondheidszorg.toLowerCase()
+        const filterGeestelijkegezondheidszorg = geestelijkegezondheidszorgLowerCase == "ja" || geestelijkegezondheidszorgLowerCase == "yes"
+        return filterGeestelijkegezondheidszorg
+      }
+    );
+    getData(dataGeestelijk)
+  }
+}
+
+
+function nofilter() {
+  fetch('data.json')
+    .then((response) => {
+      return response.json();
+    })
+    .then((myJson) => {
+      getData(myJson)
+    })
+}
+
+
 function getData(data) {
+
   //Filter on double concerncodes and latest years (2017/2018)
   var i = 0;
   const checkdoubleconcerncode = [];
@@ -288,42 +392,46 @@ function getData(data) {
         return "images/icons/missing_violet.svg";
       }
     })
+  console.log(filteron.length)
   return dataFiltered
+
 }
 
+function thuisOn() { filterThuis.classList.add('filteron') }
 
-// // Get de style differences out of the data
-// const geestelijkegezondheidszorgLowerCase = data.geestelijkegezondheidszorg.toLowerCase()
-// const gehandicaptenzorgLowerCase = data.gehandicaptenzorg.toLowerCase()
-// const thuiszorgLowerCase = data.thuiszorg.toLowerCase()
-//   // filter the data by input search field
-// function filterGeestelijkegezondheidszorg(data) {
-//   return data.filter(
-//     function(data) {
-//      const filterGeestelijkegezondheidszorg = geestelijkegezondheidszorgLowerCase == ja || geestelijkegezondheidszorgLowerCase == yes
-//       return filterGeestelijkegezondheidszorg
-//     }
-//   );
-// }
+function thuisOff() { filterThuis.classList.remove('filteron') }
 
-// function filterGehandicaptenzorg(data) {
-//   return data.filter(
-//     function(data) {
-//       const filterGehandicaptenzorg = gehandicaptenzorgLowerCase == ja || gehandicaptenzorgLowerCase == yes
-//       return filterGehandicaptenzorg
-//     }
-//   );
-// }
+function handicapOn() { filterHandicap.classList.add('filteron') }
 
-// function filterThuiszorg(data) {
-//   return data.filter(
-//     function(data) {
-//      const filterThuiszorg = thuiszorgLowerCase == ja || thuiszorgLowerCase == yes
-//       return filterThuiszorg
-//     }
-//   );
-// }
+function handicapOff() { filterHandicap.classList.remove('filteron') }
 
-// filterThuis.addEventListener('click', filterThuiszorg)
-// filterHandicap.addEventListener('click', filterHandicap)
-// filterGeestelijk.addEventListener('click', filterGeestelijk)
+function geestelijkOn() { filterGeestelijk.classList.add('filteron') }
+
+function geestelijkOff() { filterGeestelijk.classList.remove('filteron') }
+
+function toggle() { this.classList.toggle('filteron') }
+
+
+function checkFilter() {
+  if (filteron.length == 0) {
+    return nofilter()
+  } else { console.log("aan") }
+}
+
+filterThuis.addEventListener('click', filterThuiszorg)
+filterThuis.addEventListener('click', toggle)
+filterThuis.addEventListener('click', handicapOff)
+filterThuis.addEventListener('click', geestelijkOff)
+filterThuis.addEventListener('click', checkFilter)
+
+filterHandicap.addEventListener('click', filterHandicapzorg);
+filterHandicap.addEventListener('click', toggle);
+filterHandicap.addEventListener('click', thuisOff);
+filterHandicap.addEventListener('click', geestelijkOff);
+filterHandicap.addEventListener('click', checkFilter)
+
+filterGeestelijk.addEventListener('click', filterGeestelijkegezondheidszorg)
+filterGeestelijk.addEventListener('click', toggle)
+filterGeestelijk.addEventListener('click', handicapOff)
+filterGeestelijk.addEventListener('click', thuisOff)
+filterGeestelijk.addEventListener('click', checkFilter)
