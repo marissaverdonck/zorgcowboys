@@ -1,6 +1,8 @@
 # Zorgcowboys
 ![image_preview](https://user-images.githubusercontent.com/43657951/70627333-59d9c380-1c26-11ea-80b5-1e9e61f9f791.jpg)
 
+## Live Demo
+https://marissaverdonck.github.io/zorgcowboys/
 
 ## De opdracht
 In opdracht van Pointer brengen we fraude in kaart van zorginstellingen in Nederland. Er wordt een interactieve visualisatie verwacht waarmee je door de winstcijfers van zorginstellingen kunt zoeken. De winstcijfers van zorginstellingen zijn inzichtelijk, zodat
